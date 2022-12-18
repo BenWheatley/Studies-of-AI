@@ -129,12 +129,7 @@ Prompt: `Мальчик и девочка играют с футбольным �
 
 Prompt: `Wiil iyo gabadh ku ciyaaraya kubbadda cagta meel aad u qurux badan oo qorraxdu leedahay oo geed leh, sawir qaade, xirfadle, 4k`
 
-<table><tr>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-</tr></table>
+<img src="Screenshot 2022-12-17 at 14.29.12.png" width="1024">
 
 # Spanish
 
