@@ -152,10 +152,10 @@ Prompt: `Niño y niña jugando con una pelota de fútbol en un hermoso parque so
 Prompt: `Mvulana na msichana wakicheza na mpira wa miguu katika bustani nzuri ya jua yenye mti, mpiga picha, mtaalamu, 4k`
 
 <table><tr>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.44.23 - Mvulana na msichana wakicheza na mpira wa miguu katika bustani nzuri ya jua yenye mti, mpiga picha, mtaalamu, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.44.25 - Mvulana na msichana wakicheza na mpira wa miguu katika bustani nzuri ya jua yenye mti, mpiga picha, mtaalamu, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.44.26 - Mvulana na msichana wakicheza na mpira wa miguu katika bustani nzuri ya jua yenye mti, mpiga picha, mtaalamu, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.44.28 - Mvulana na msichana wakicheza na mpira wa miguu katika bustani nzuri ya jua yenye mti, mpiga picha, mtaalamu, 4k.png" width="256"></td>
 </tr></table>
 
 # Vietnamese
