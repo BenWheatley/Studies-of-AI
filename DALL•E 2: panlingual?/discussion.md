@@ -86,10 +86,10 @@ Prompt: `ילד וילדה משחקים עם כדור כדורגל בפארק ש
 Note: There may be an issue with right-to-left encoding of "4k"
 
 <table><tr>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.03.31 -  ילד וילדה משחקים עם כדור כדורגל בפארק שטוף שמש יפהפה עם עץ, צלם, מקצועי, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.03.34 -  ילד וילדה משחקים עם כדור כדורגל בפארק שטוף שמש יפהפה עם עץ, צלם, מקצועי, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.03.39 -  ילד וילדה משחקים עם כדור כדורגל בפארק שטוף שמש יפהפה עם עץ, צלם, מקצועי, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.03.44 -  ילד וילדה משחקים עם כדור כדורגל בפארק שטוף שמש יפהפה עם עץ, צלם, מקצועי, 4k.png" width="256"></td>
 </tr></table>
 
 # Korean
