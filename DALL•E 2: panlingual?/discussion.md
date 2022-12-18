@@ -163,10 +163,10 @@ Prompt: `Mvulana na msichana wakicheza na mpira wa miguu katika bustani nzuri ya
 Prompt: `Chàng trai và cô gái chơi bóng trong công viên xinh đẹp đầy nắng với một cái cây, nhiếp ảnh gia, chuyên nghiệp, 4k`
 
 <table><tr>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.42.29 - Chàng trai và cô gái chơi bóng trong công viên xinh đẹp đầy nắng với một cái cây, nhiếp ảnh gia, chuyên nghiệp, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.42.31 - Chàng trai và cô gái chơi bóng trong công viên xinh đẹp đầy nắng với một cái cây, nhiếp ảnh gia, chuyên nghiệp, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.42.32 - Chàng trai và cô gái chơi bóng trong công viên xinh đẹp đầy nắng với một cái cây, nhiếp ảnh gia, chuyên nghiệp, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.42.35 - Chàng trai và cô gái chơi bóng trong công viên xinh đẹp đầy nắng với một cái cây, nhiếp ảnh gia, chuyên nghiệp, 4k.png" width="256"></td>
 </tr></table>
 
 # Zulu
