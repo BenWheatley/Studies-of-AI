@@ -141,10 +141,10 @@ Prompt: `Wiil iyo gabadh ku ciyaaraya kubbadda cagta meel aad u qurux badan oo q
 Prompt: `Niño y niña jugando con una pelota de fútbol en un hermoso parque soleado con un árbol, fotógrafo, profesional, 4k`
 
 <table><tr>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.51.42 - Niño y niña jugando con una pelota de fútbol en un hermoso parque soleado con un árbol, fotógrafo, profesional, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.51.44 - Niño y niña jugando con una pelota de fútbol en un hermoso parque soleado con un árbol, fotógrafo, profesional, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.51.45 - Niño y niña jugando con una pelota de fútbol en un hermoso parque soleado con un árbol, fotógrafo, profesional, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.51.48 - Niño y niña jugando con una pelota de fútbol en un hermoso parque soleado con un árbol, fotógrafo, profesional, 4k.png" width="256"></td>
 </tr></table>
 
 # Swahili
