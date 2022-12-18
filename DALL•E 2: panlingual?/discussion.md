@@ -29,10 +29,10 @@ Note: There may be an issue with right-to-left encoding of "4k"
 Prompt: `男孩和女孩在阳光明媚的美丽公园里踢足球，公园里有一棵树，摄影师，专业人士，4k`
 
 <table><tr>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.27.27 - 男孩和女孩在阳光明媚的美丽公园里踢足球，公园里有一棵树，摄影师，专业人士，4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.27.29 - 男孩和女孩在阳光明媚的美丽公园里踢足球，公园里有一棵树，摄影师，专业人士，4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.27.31 - 男孩和女孩在阳光明媚的美丽公园里踢足球，公园里有一棵树，摄影师，专业人士，4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.27.33 - 男孩和女孩在阳光明媚的美丽公园里踢足球，公园里有一棵树，摄影师，专业人士，4k.png" width="256"></td>
 </tr></table>
 
 # Esperanto
