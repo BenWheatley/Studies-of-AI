@@ -1,6 +1,16 @@
-A comparison of DALL•E 2 outputs in various languages. Original prompt in English, all other translations provided by Google Translate.
+# Abstract
 
-# English
+DALL•E 2 is a state-of-the-art neural network developed by OpenAI that is capable of generating original images from textual prompts. In this poster, I present a comparison of DALL•E 2's outputs when given the same prompt in various languages.
+
+To conduct the comparison, I first translated the original prompt into several different languages using Google Translate. I then fed each of these translated prompts into DALL•E 2 and recorded the resulting images.
+
+The results show that DALL•E 2's outputs vary depending on the language of the prompt, with the connection between the prompt and the result varying from a good match (English) to no apparent connection to anything in the prompt (Hebrew), or failing entirely (Somali).
+
+Overall, this study highlights the importance of including a broad range of languages in the training data of ML and AI systems. Some of the specific results also raise questions about the potential cultural biases present in such systems and the need for further research in this area.
+
+# Prompts and resulting images
+
+## English
 
 Prompt: `Boy and girl playing with a soccer ball in a sunny beautiful park with a tree, photographer, professional, 4k`
 
@@ -11,7 +21,7 @@ Prompt: `Boy and girl playing with a soccer ball in a sunny beautiful park with 
 <td><img src="DALL·E 2022-12-18 15.31.16 - Boy and girl playing with a soccer ball in a sunny beautiful park with a tree, photographer, professional, 4k.png" width="256"></td>
 </tr></table>
 
-# Arabic
+## Arabic
 
 Prompt: `صبي وفتاة يلعبان بكرة القدم في حديقة مشمسة وجميلة مع شجرة ، مصور ، محترف ، 4k`
 
@@ -24,7 +34,7 @@ Note: There may be an issue with right-to-left encoding of "4k"
 <td><img src="DALL·E 2022-12-18 15.29.05 - صبي وفتاة يلعبان بكرة القدم في حديقة مشمسة وجميلة مع شجرة ، مصور ، محترف ، 4k.png" width="256"></td>
 </tr></table>
 
-# Chinese (simplified)
+## Chinese (simplified)
 
 Prompt: `男孩和女孩在阳光明媚的美丽公园里踢足球，公园里有一棵树，摄影师，专业人士，4k`
 
@@ -35,7 +45,7 @@ Prompt: `男孩和女孩在阳光明媚的美丽公园里踢足球，公园里�
 <td><img src="DALL·E 2022-12-18 15.27.33 - 男孩和女孩在阳光明媚的美丽公园里踢足球，公园里有一棵树，摄影师，专业人士，4k.png" width="256"></td>
 </tr></table>
 
-# Esperanto
+## Esperanto
 
 Prompt: `Knabo kaj knabino ludanta kun futbala pilko en suna bela parko kun arbo, fotisto, profesia, 4k`
 
@@ -46,7 +56,7 @@ Prompt: `Knabo kaj knabino ludanta kun futbala pilko en suna bela parko kun arbo
 <td><img src="DALL·E 2022-12-18 14.37.09 - Knabo kaj knabino ludanta kun futbala pilko en suna bela parko kun arbo, fotisto, profesia, 4k.png" width="256"></td>
 </tr></table>
 
-# French
+## French
 
 Prompt: `Garçon et fille jouant avec un ballon de football dans un beau parc ensoleillé avec un arbre, photographe, professionnel, 4k`
 
@@ -57,7 +67,7 @@ Prompt: `Garçon et fille jouant avec un ballon de football dans un beau parc en
 <td><img src="DALL·E 2022-12-18 15.26.01 - Garçon et fille jouant avec un ballon de football dans un beau parc ensoleillé avec un arbre, photographe, professionnel, 4k.png" width="256"></td>
 </tr></table>
 
-# German
+## German
 
 Prompt: `Junge und Mädchen spielen mit einem Fußball in einem sonnigen, schönen Park mit einem Baum, Fotograf, Profi, 4k`
 
@@ -68,7 +78,7 @@ Prompt: `Junge und Mädchen spielen mit einem Fußball in einem sonnigen, schön
 <td><img src="DALL·E 2022-12-18 15.08.28 - Junge und Mädchen spielen mit einem Fußball in einem sonnigen, schönen Park mit einem Baum, Fotograf, Profi, 4k.png" width="256"></td>
 </tr></table>
 
-# Greek
+## Greek
 
 Prompt: `Αγόρι και κορίτσι παίζουν με μια μπάλα ποδοσφαίρου σε ένα ηλιόλουστο όμορφο πάρκο με ένα δέντρο, φωτογράφος, επαγγελματίας, 4k`
 
@@ -79,7 +89,7 @@ Prompt: `Αγόρι και κορίτσι παίζουν με μια μπάλα 
 <td><img src="DALL·E 2022-12-18 14.22.29 - Αγόρι και κορίτσι παίζουν με μια μπάλα ποδοσφαίρου σε ένα ηλιόλουστο όμορφο πάρκο με ένα δέντρο, φωτογράφος, επαγγελματίας, 4k.png" width="256"></td>
 </tr></table>
 
-# Hebrew
+## Hebrew
 
 Prompt: `ילד וילדה משחקים עם כדור כדורגל בפארק שטוף שמש יפהפה עם עץ, צלם, מקצועי, 4k`
 
@@ -92,7 +102,7 @@ Note: There may be an issue with right-to-left encoding of "4k"
 <td><img src="DALL·E 2022-12-18 15.03.44 -  ילד וילדה משחקים עם כדור כדורגל בפארק שטוף שמש יפהפה עם עץ, צלם, מקצועי, 4k.png" width="256"></td>
 </tr></table>
 
-# Korean
+## Korean
 
 Prompt: `나무, 사진작가, 전문가, 4k가 있는 햇살 가득한 아름다운 공원에서 축구공을 가지고 노는 소년 소녀`
 
@@ -103,7 +113,7 @@ Prompt: `나무, 사진작가, 전문가, 4k가 있는 햇살 가득한 아름�
 <td><img src="DALL·E 2022-12-18 15.01.14 - 나무, 사진작가, 전문가, 4k가 있는 햇살 가득한 아름다운 공원에서 축구공을 가지고 노는 소년 소녀.png" width="256"></td>
 </tr></table>
 
-# Norwegian
+## Norwegian
 
 Prompt: `Gutt og jente leker med en fotball i en solrik vakker park med et tre, fotograf, profesjonell, 4k`
 
@@ -114,7 +124,7 @@ Prompt: `Gutt og jente leker med en fotball i en solrik vakker park med et tre, 
 <td><img src="DALL·E 2022-12-18 14.55.15 - Gutt og jente leker med en fotball i en solrik vakker park med et tre, fotograf, profesjonell, 4k.png" width="256"></td>
 </tr></table>
 
-# Russian
+## Russian
 
 Prompt: `Мальчик и девочка играют с футбольным мячом в солнечном красивом парке с деревом, фотограф, профессионал, 4k`
 
@@ -125,13 +135,13 @@ Prompt: `Мальчик и девочка играют с футбольным �
 <td><img src="DALL·E 2022-12-18 14.53.37 - Мальчик и девочка играют с футбольным мячом в солнечном красивом парке с деревом, фотограф, профессионал, 4k.png" width="256"></td>
 </tr></table>
 
-# Somali
+## Somali
 
 Prompt: `Wiil iyo gabadh ku ciyaaraya kubbadda cagta meel aad u qurux badan oo qorraxdu leedahay oo geed leh, sawir qaade, xirfadle, 4k`
 
 <img src="Screenshot 2022-12-17 at 14.29.12.png" width="1024">
 
-# Spanish
+## Spanish
 
 Prompt: `Niño y niña jugando con una pelota de fútbol en un hermoso parque soleado con un árbol, fotógrafo, profesional, 4k`
 
@@ -142,7 +152,7 @@ Prompt: `Niño y niña jugando con una pelota de fútbol en un hermoso parque so
 <td><img src="DALL·E 2022-12-18 14.51.48 - Niño y niña jugando con una pelota de fútbol en un hermoso parque soleado con un árbol, fotógrafo, profesional, 4k.png" width="256"></td>
 </tr></table>
 
-# Swahili
+## Swahili
 
 Prompt: `Mvulana na msichana wakicheza na mpira wa miguu katika bustani nzuri ya jua yenye mti, mpiga picha, mtaalamu, 4k`
 
@@ -153,7 +163,7 @@ Prompt: `Mvulana na msichana wakicheza na mpira wa miguu katika bustani nzuri ya
 <td><img src="DALL·E 2022-12-18 14.44.28 - Mvulana na msichana wakicheza na mpira wa miguu katika bustani nzuri ya jua yenye mti, mpiga picha, mtaalamu, 4k.png" width="256"></td>
 </tr></table>
 
-# Vietnamese
+## Vietnamese
 
 Prompt: `Chàng trai và cô gái chơi bóng trong công viên xinh đẹp đầy nắng với một cái cây, nhiếp ảnh gia, chuyên nghiệp, 4k`
 
@@ -164,7 +174,7 @@ Prompt: `Chàng trai và cô gái chơi bóng trong công viên xinh đẹp đ�
 <td><img src="DALL·E 2022-12-18 14.42.35 - Chàng trai và cô gái chơi bóng trong công viên xinh đẹp đầy nắng với một cái cây, nhiếp ảnh gia, chuyên nghiệp, 4k.png" width="256"></td>
 </tr></table>
 
-# Zulu
+## Zulu
 
 Prompt: `Umfana nentombazane badlala ngebhola epaki elihle elinelanga elinesihlahla, umthwebuli wezithombe, uchwepheshe, 4k`
 
