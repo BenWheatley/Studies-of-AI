@@ -18,10 +18,10 @@ Prompt: `صبي وفتاة يلعبان بكرة القدم في حديقة مش
 Note: There may be an issue with right-to-left encoding of "4k"
 
 <table><tr>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.29.11 - صبي وفتاة يلعبان بكرة القدم في حديقة مشمسة وجميلة مع شجرة ، مصور ، محترف ، 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.29.09 - صبي وفتاة يلعبان بكرة القدم في حديقة مشمسة وجميلة مع شجرة ، مصور ، محترف ، 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.29.07 - صبي وفتاة يلعبان بكرة القدم في حديقة مشمسة وجميلة مع شجرة ، مصور ، محترف ، 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.29.05 - صبي وفتاة يلعبان بكرة القدم في حديقة مشمسة وجميلة مع شجرة ، مصور ، محترف ، 4k.png" width="256"></td>
 </tr></table>
 
 # Chinese (simplified)
