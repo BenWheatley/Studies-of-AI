@@ -174,8 +174,8 @@ Prompt: `Chàng trai và cô gái chơi bóng trong công viên xinh đẹp đ�
 Prompt: `Umfana nentombazane badlala ngebhola epaki elihle elinelanga elinesihlahla, umthwebuli wezithombe, uchwepheshe, 4k`
 
 <table><tr>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.39.57 - Umfana nentombazane badlala ngebhola epaki elihle elinelanga elinesihlahla, umthwebuli wezithombe, uchwepheshe, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.39.59 - Umfana nentombazane badlala ngebhola epaki elihle elinelanga elinesihlahla, umthwebuli wezithombe, uchwepheshe, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.40.01 - Umfana nentombazane badlala ngebhola epaki elihle elinelanga elinesihlahla, umthwebuli wezithombe, uchwepheshe, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.40.03 - Umfana nentombazane badlala ngebhola epaki elihle elinelanga elinesihlahla, umthwebuli wezithombe, uchwepheshe, 4k.png" width="256"></td>
 </tr></table>
