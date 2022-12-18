@@ -62,10 +62,10 @@ Prompt: `Garçon et fille jouant avec un ballon de football dans un beau parc en
 Prompt: `Junge und Mädchen spielen mit einem Fußball in einem sonnigen, schönen Park mit einem Baum, Fotograf, Profi, 4k`
 
 <table><tr>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.08.22 - Junge und Mädchen spielen mit einem Fußball in einem sonnigen, schönen Park mit einem Baum, Fotograf, Profi, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.08.24 - Junge und Mädchen spielen mit einem Fußball in einem sonnigen, schönen Park mit einem Baum, Fotograf, Profi, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.08.26 - Junge und Mädchen spielen mit einem Fußball in einem sonnigen, schönen Park mit einem Baum, Fotograf, Profi, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.08.28 - Junge und Mädchen spielen mit einem Fußball in einem sonnigen, schönen Park mit einem Baum, Fotograf, Profi, 4k.png" width="256"></td>
 </tr></table>
 
 # Greek
