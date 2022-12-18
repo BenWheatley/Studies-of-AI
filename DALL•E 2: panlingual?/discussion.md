@@ -276,3 +276,8 @@ Prompt: `Umfana nentombazane badlala ngebhola epaki elihle elinelanga elinesihla
 |            | 2 | 0    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 2           |                |
 |            | 3 | 0    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 2           |                |
 |            | 4 | 1    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 3           |                |
+
+<img src="Score vs Language.svg" width="1024" />
+
+# Conclusions
+
