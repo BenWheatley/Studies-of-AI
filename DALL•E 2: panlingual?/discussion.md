@@ -51,10 +51,10 @@ Prompt: `Knabo kaj knabino ludanta kun futbala pilko en suna bela parko kun arbo
 Prompt: `Garçon et fille jouant avec un ballon de football dans un beau parc ensoleillé avec un arbre, photographe, professionnel, 4k`
 
 <table><tr>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.26.06 - Garçon et fille jouant avec un ballon de football dans un beau parc ensoleillé avec un arbre, photographe, professionnel, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.26.05 - Garçon et fille jouant avec un ballon de football dans un beau parc ensoleillé avec un arbre, photographe, professionnel, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.26.03 - Garçon et fille jouant avec un ballon de football dans un beau parc ensoleillé avec un arbre, photographe, professionnel, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.26.01 - Garçon et fille jouant avec un ballon de football dans un beau parc ensoleillé avec un arbre, photographe, professionnel, 4k.png" width="256"></td>
 </tr></table>
 
 # German
