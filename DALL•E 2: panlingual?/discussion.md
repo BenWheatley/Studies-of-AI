@@ -40,10 +40,10 @@ Prompt: `男孩和女孩在阳光明媚的美丽公园里踢足球，公园里�
 Prompt: `Knabo kaj knabino ludanta kun futbala pilko en suna bela parko kun arbo, fotisto, profesia, 4k`
 
 <table><tr>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.37.03 - Knabo kaj knabino ludanta kun futbala pilko en suna bela parko kun arbo, fotisto, profesia, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.37.05 - Knabo kaj knabino ludanta kun futbala pilko en suna bela parko kun arbo, fotisto, profesia, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.37.07 - Knabo kaj knabino ludanta kun futbala pilko en suna bela parko kun arbo, fotisto, profesia, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.37.09 - Knabo kaj knabino ludanta kun futbala pilko en suna bela parko kun arbo, fotisto, profesia, 4k.png" width="256"></td>
 </tr></table>
 
 # French
