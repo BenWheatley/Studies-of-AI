@@ -1,3 +1,7 @@
+# Author(s)
+
+Me and three AI: Google Translate, DALL•E 2, ChatGPT
+
 # Abstract
 
 DALL•E 2 is a state-of-the-art neural network developed by OpenAI that is capable of generating original images from textual prompts. In this poster, I present a comparison of DALL•E 2's outputs when given the same prompt in various languages.
