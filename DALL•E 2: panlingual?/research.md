@@ -1,3 +1,5 @@
+# DALL•E 2: panlingual?
+
 # Author(s)
 
 Me and three AI: Google Translate, DALL•E 2, ChatGPT
