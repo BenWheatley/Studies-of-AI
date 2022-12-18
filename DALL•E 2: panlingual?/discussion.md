@@ -5,10 +5,10 @@ A comparison of DALL•E 2 outputs in various languages. Original prompt in Engl
 Prompt: `Boy and girl playing with a soccer ball in a sunny beautiful park with a tree, photographer, professional, 4k`
 
 <table><tr>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.31.21 - Boy and girl playing with a soccer ball in a sunny beautiful park with a tree, photographer, professional, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.31.19 - Boy and girl playing with a soccer ball in a sunny beautiful park with a tree, photographer, professional, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.31.17 - Boy and girl playing with a soccer ball in a sunny beautiful park with a tree, photographer, professional, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 15.31.16 - Boy and girl playing with a soccer ball in a sunny beautiful park with a tree, photographer, professional, 4k.png" width="256"></td>
 </tr></table>
 
 # Arabic
