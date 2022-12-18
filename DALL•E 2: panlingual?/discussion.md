@@ -8,6 +8,12 @@ The results show that DALL•E 2's outputs vary depending on the language of the
 
 Overall, this study highlights the importance of including a broad range of languages in the training data of ML and AI systems. Some of the specific results also raise questions about the potential cultural biases present in such systems and the need for further research in this area.
 
+# Methods
+
+The prompt `Boy and girl playing with a soccer ball in a sunny beautiful park with a tree, photographer, professional, 4k` was translated from English into 14 other languages via Google Translate. Each of these translations was then fed into DALL•E 2 on the https://labs.openai.com web interface. The results were then downloaded. All translated prompts and resulting images are shown here without cherry-picking.
+
+Each image was then scored by how well it matched the (original, English-language) prompt, one point for the presence of each of {Boy, Girl, Play, Soccer ball, Sunny, Park, Tree, Photographer} in the image. When an image was ambiguous (e.g. is the environment a park or a garden? Is that blurry humanoid a boy or a girl? Do adults count?) the image was interpreted generously. The maximum score for any image is 8, the maximum score for any language is 32.
+
 # Prompts and resulting images
 
 ## English
@@ -184,3 +190,89 @@ Prompt: `Umfana nentombazane badlala ngebhola epaki elihle elinelanga elinesihla
 <td><img src="DALL·E 2022-12-18 14.40.01 - Umfana nentombazane badlala ngebhola epaki elihle elinelanga elinesihlahla, umthwebuli wezithombe, uchwepheshe, 4k.png" width="256"></td>
 <td><img src="DALL·E 2022-12-18 14.40.03 - Umfana nentombazane badlala ngebhola epaki elihle elinelanga elinesihlahla, umthwebuli wezithombe, uchwepheshe, 4k.png" width="256"></td>
 </tr></table>
+
+# Results
+
+| Language   | # | Has: |      |      |             |       |      |      |              |  | Image score | Language score |
+|------------|---|------|------|------|-------------|-------|------|------|--------------|--|-------------|----------------|
+|            |   | Boy  | Girl | Play | Soccer ball | Sunny | Park | Tree | Photographer |  |             |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| English    | 1 | 0    | 1    | 1    | 1           | 1     | 1    | 1    | 1            |  | 7           | 28             |
+|            | 2 | 0    | 1    | 1    | 1           | 1     | 1    | 1    | 1            |  | 7           |                |
+|            | 3 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            | 4 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| Arabic     | 1 | 0    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 2           | 8              |
+|            | 2 | 0    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 2           |                |
+|            | 3 | 0    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 2           |                |
+|            | 4 | 0    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 2           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| Chinese    | 1 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           | 28             |
+|            | 2 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            | 3 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            | 4 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| Esperanto  | 1 | 0    | 0    | 0    | 0           | 1     | 1    | 1    | 0            |  | 3           | 12             |
+|            | 2 | 0    | 0    | 0    | 0           | 0     | 1    | 1    | 0            |  | 2           |                |
+|            | 3 | 0    | 0    | 0    | 0           | 1     | 1    | 1    | 0            |  | 3           |                |
+|            | 4 | 0    | 0    | 0    | 1           | 1     | 1    | 1    | 0            |  | 4           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| French     | 1 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           | 28             |
+|            | 2 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            | 3 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            | 4 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| German     | 1 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           | 28             |
+|            | 2 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            | 3 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            | 4 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| Greek      | 1 | 0    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 2           | 8              |
+|            | 2 | 0    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 2           |                |
+|            | 3 | 0    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 2           |                |
+|            | 4 | 0    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 2           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| Hebrew     | 1 | 0    | 0    | 0    | 0           | 0     | 0    | 0    | 0            |  | 0           | 0              |
+|            | 2 | 0    | 0    | 0    | 0           | 0     | 0    | 0    | 0            |  | 0           |                |
+|            | 3 | 0    | 0    | 0    | 0           | 0     | 0    | 0    | 0            |  | 0           |                |
+|            | 4 | 0    | 0    | 0    | 0           | 0     | 0    | 0    | 0            |  | 0           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| Korean     | 1 | 0    | 0    | 0    | 0           | 0     | 0    | 0    | 0            |  | 0           | 3              |
+|            | 2 | 0    | 0    | 0    | 0           | 1     | 0    | 0    | 0            |  | 1           |                |
+|            | 3 | 0    | 0    | 0    | 0           | 1     | 0    | 0    | 0            |  | 1           |                |
+|            | 4 | 0    | 0    | 0    | 0           | 1     | 0    | 0    | 0            |  | 1           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| Norwegian  | 1 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           | 28             |
+|            | 2 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            | 3 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            | 4 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| Russian    | 1 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           | 28             |
+|            | 2 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            | 3 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            | 4 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| Somali     |   | N/A  |      |      |             |       |      |      |              |  | N/A         | N/A            |
+|            |   | N/A  |      |      |             |       |      |      |              |  | N/A         |                |
+|            |   | N/A  |      |      |             |       |      |      |              |  | N/A         |                |
+|            |   | N/A  |      |      |             |       |      |      |              |  | N/A         |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| Spanish    | 1 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           | 27             |
+|            | 2 | 1    | 0    | 1    | 1           | 1     | 1    | 1    | 0            |  | 6           |                |
+|            | 3 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            | 4 | 1    | 1    | 1    | 1           | 1     | 1    | 1    | 0            |  | 7           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| Swahili    | 1 | 0    | 0    | 0    | 0           | 1     | 0    | 0    | 0            |  | 1           | 8              |
+|            | 2 | 0    | 0    | 0    | 0           | 1     | 0    | 0    | 0            |  | 1           |                |
+|            | 3 | 1    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 3           |                |
+|            | 4 | 0    | 0    | 0    | 0           | 1     | 1    | 1    | 0            |  | 3           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| Vietnamese | 1 | 1    | 1    | 0    | 0           | 1     | 1    | 1    | 0            |  | 5           | 20             |
+|            | 2 | 1    | 1    | 0    | 0           | 1     | 1    | 1    | 0            |  | 5           |                |
+|            | 3 | 1    | 1    | 0    | 0           | 1     | 1    | 1    | 0            |  | 5           |                |
+|            | 4 | 1    | 1    | 0    | 0           | 1     | 1    | 1    | 0            |  | 5           |                |
+|            |   |      |      |      |             |       |      |      |              |  |             |                |
+| Zulu       | 1 | 0    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 2           | 9              |
+|            | 2 | 0    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 2           |                |
+|            | 3 | 0    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 2           |                |
+|            | 4 | 1    | 0    | 0    | 0           | 1     | 0    | 1    | 0            |  | 3           |                |
