@@ -108,10 +108,10 @@ Prompt: `나무, 사진작가, 전문가, 4k가 있는 햇살 가득한 아름�
 Prompt: `Gutt og jente leker med en fotball i en solrik vakker park med et tre, fotograf, profesjonell, 4k`
 
 <table><tr>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
-<td><img src="" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.55.09 - Gutt og jente leker med en fotball i en solrik vakker park med et tre, fotograf, profesjonell, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.55.10 - Gutt og jente leker med en fotball i en solrik vakker park med et tre, fotograf, profesjonell, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.55.12 - Gutt og jente leker med en fotball i en solrik vakker park med et tre, fotograf, profesjonell, 4k.png" width="256"></td>
+<td><img src="DALL·E 2022-12-18 14.55.15 - Gutt og jente leker med en fotball i en solrik vakker park med et tre, fotograf, profesjonell, 4k.png" width="256"></td>
 </tr></table>
 
 # Russian
