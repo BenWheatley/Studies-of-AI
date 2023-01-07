@@ -1,0 +1,203 @@
+<html>
+
+<head>
+<style>
+canvas {
+  border: 1px solid black;
+}
+
+button {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+</style>
+
+<script>
+// Game variables
+const GAME_WIDTH = 640;
+const GAME_HEIGHT = 480;
+
+let paddle1 = {
+  x: 10,
+  y: GAME_HEIGHT / 2 - 50,
+  width: 10,
+  height: 100
+};
+
+let paddle2 = {
+  x: 620,
+  y: GAME_HEIGHT / 2 - 50,
+  width: 10,
+  height: 100
+};
+
+let ball = {
+  x: GAME_WIDTH / 2,
+  y: GAME_HEIGHT / 2,
+  radius: 10,
+  speed: 5,
+  directionX: 1,
+  directionY: 1
+};
+
+// Scores for each player
+let player1Score = 0;
+let player2Score = 0;
+
+// Flag to track whether a key is currently being pressed
+let isUpKeyDown = false;
+let isDownKeyDown = false;
+let isWKeyDown = false;
+let isSKeyDown = false;
+
+// Handle keydown events
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode === 38) {
+    // Up arrow key was pressed
+    isUpKeyDown = true;
+  } else if (event.keyCode === 40) {
+    // Down arrow key was pressed
+    isDownKeyDown = true;
+  } else if (event.keyCode === 87) {
+    // W key was pressed
+    isWKeyDown = true;
+  } else if (event.keyCode === 83) {
+    // S key was pressed
+    isSKeyDown
+  }
+});
+
+// Handle keyup events
+document.addEventListener('keyup', function(event) {
+  if (event.keyCode === 38) {
+    // Up arrow key was released
+    isUpKeyDown = false;
+  } else if (event.keyCode === 40) {
+    // Down arrow key was released
+    isDownKeyDown = false;
+  } else if (event.keyCode === 87) {
+    // W key was released
+    isWKeyDown = false;
+  } else if (event.keyCode === 83) {
+    // S key was released
+    isSKeyDown = false;
+  }
+});
+
+// Update paddle positions
+function updatePaddlePositions() {
+  if (isUpKeyDown) {
+    // Up arrow key is being pressed (left paddle)
+    paddle1.y -= 20;
+    if (paddle1.y < 0) {
+      paddle1.y = 0;
+    }
+  }
+  if (isDownKeyDown) {
+    // Down arrow key is being pressed (left paddle)
+    paddle1.y += 20;
+    if (paddle1.y + paddle1.height > GAME_HEIGHT) {
+      paddle1.y = GAME_HEIGHT - paddle1.height;
+    }
+  }
+  if (isWKeyDown) {
+    // W key is being pressed (right paddle)
+    paddle2.y -= 20;
+    if (paddle2.y < 0) {
+      paddle2.y = 0;
+    }
+  }
+  if (isSKeyDown) {
+    // S key is being pressed (right paddle)
+    paddle2.y += 20;
+    if (paddle2.y + paddle2.height > GAME_HEIGHT) {
+      paddle2.y = GAME_HEIGHT - paddle2.height;
+    }
+  }
+}
+
+// Update the position of the ball
+function updateBallPosition() {
+  // Update the position of the ball
+  ball.x += ball.speed * ball.directionX;
+  ball.y += ball
+  // Check if the ball has gone out of bounds
+  if (ball.x < 0) {
+    // Ball has gone out of bounds on the left side
+    player2Score++;
+    resetBall();
+  } else if (ball.x > GAME_WIDTH) {
+    // Ball has gone out of bounds on the right side
+    player1Score++;
+    resetBall();
+  }
+}
+
+// Reset the ball to the center of the screen
+function resetBall() {
+  ball.x = GAME_WIDTH / 2;
+  ball.y = GAME_HEIGHT / 2;
+}
+
+// Draw the paddles and ball on the canvas
+function drawPaddles() {
+  // Draw the left paddle
+  document.getElementById('gameCanvas').getContext('2d').fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
+
+  // Draw the right paddle
+  document.getElementById('gameCanvas').getContext('2d').fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
+}
+
+function drawBall() {
+  // Draw the ball
+  let ctx = document.getElementById('gameCanvas').getContext('2d');
+  ctx.beginPath();
+  ctx.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI);
+  ctx.fill();
+}
+
+// Display the scores on the screen
+function drawScores() {
+  let ctx = document.getElementById('gameCanvas').getContext('2d');
+  ctx.font = '48px serif';
+  ctx.fillText(player1Score, 10, 50);
+  ctx.fillText(player2Score, GAME_WIDTH - 50, 50);
+}
+
+// Game loop
+function gameLoop() {
+  // Clear the canvas
+  document.getElementById('gameCanvas').getContext('2d').clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+
+  // Draw the background
+//  drawBackground();
+
+  // Update the position of the ball
+  updateBallPosition();
+
+  // Update the positions of the paddles
+  updatePaddlePositions();
+
+  // Draw the paddles and ball on the canvas
+  drawPaddles();
+  drawBall();
+
+  // Draw the scores on the screen
+  drawScores();
+}
+
+// Run the game loop at 60 frames per second
+setInterval(gameLoop, 1000 / 60);
+
+</script>
+
+</head>
+
+<canvas id="gameCanvas" width="800" height="600"></canvas>
+<br>
+<button onclick="startGame()">Start Game</button>
+<button onclick="stopGame()">Stop Game</button>
+
+</html
