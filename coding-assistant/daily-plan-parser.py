@@ -5,6 +5,7 @@ import re
 import matplotlib.pyplot as plt
 import numpy as np
 import argparse
+from typing import List
 
 class Day:
     """
