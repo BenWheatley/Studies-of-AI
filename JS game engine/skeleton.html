@@ -29,6 +29,8 @@
 			y: 0
 		};
 
+		var lastCallTime = Date.now();
+
 		// Update the mouse position
 		function setMousePosition(e) {
 			mousePos.x = e.clientX;
@@ -54,13 +56,16 @@
 		}
 
 		// Update loop
-		function update() {
+		function update(deltaTime) {
 			// Nothing to do here
 		}
 
 		// Game loop
 		function loop() {
-			update();
+			var currentTime = Date.now();
+			var deltaTime = currentTime - lastCallTime;
+			lastCallTime = currentTime;
+			update(deltaTime);
 			render();
 			// Call the loop function again
 			window.requestAnimationFrame(loop);
