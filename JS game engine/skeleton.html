@@ -1,0 +1,73 @@
+<!-- A basic 2D HTML + JavaScript game engine, consisting of:
+1. Canvas element, 800x600
+2. Render loop
+3. Update loop
+4. Global data for current mouse position, stored as vector class
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game Engine</title>
+	<style type="text/css">
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="gameCanvas" width="800" height="600"></canvas>
+	<script type="text/javascript">
+		// Get the canvas element
+		var canvas = document.getElementById("gameCanvas");
+		// Get the 2D context
+		var context = canvas.getContext("2d");
+
+		// Create a new vector object
+		var mousePos = {
+			x: 0,
+			y: 0
+		};
+
+		// Update the mouse position
+		function setMousePosition(e) {
+			mousePos.x = e.clientX;
+			mousePos.y = e.clientY;
+		}
+
+		// Add event listener for mouse movement
+		canvas.addEventListener("mousemove", setMousePosition);
+
+		// Render loop
+		function render() {
+			// Clear the canvas
+			context.clearRect(0, 0, 800, 600);
+
+			// Draw a circle at the mouse position
+			context.beginPath();
+			context.arc(mousePos.x, mousePos.y, 50, 0, 2 * Math.PI, false);
+			context.fillStyle = "green";
+			context.fill();
+			context.lineWidth = 5;
+			context.strokeStyle = "black";
+			context.stroke();
+		}
+
+		// Update loop
+		function update() {
+			// Nothing to do here
+		}
+
+		// Game loop
+		function loop() {
+			update();
+			render();
+			// Call the loop function again
+			window.requestAnimationFrame(loop);
+		}
+
+		// Call the loop function for the first time
+		loop();
+	</script>
+</body>
+</html>
