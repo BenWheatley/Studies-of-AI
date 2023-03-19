@@ -95,7 +95,7 @@ EVENT_TYPES = {
 0xE0: 'PitchBend'
 }
 
-if name == 'main':
+if __name__ == '__main__':
 	assert len(sys.argv) == 2, f"Usage: {sys.argv[0]} <midi_filename>"
 	filename = sys.argv[1]
 	tracks = read_midi_file(filename)
