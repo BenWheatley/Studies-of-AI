@@ -1,0 +1,53 @@
+<html>
+<body>
+<script src="SimpleMusic.js"></script>
+<script>
+// create array to keep track of playing notes
+const playingNotes = [];
+
+// listen for up arrow key press
+window.addEventListener('keydown', function(event) {
+  if (event.code === 'ArrowUp') {
+    // check if note is already playing
+    let note = playingNotes.find((n) => n.pitch === 220);
+    if (!note) {
+      // create new note and start it
+      note = new Note(220);
+      note.start();
+      playingNotes.push(note);
+    }
+  } else if (event.code === 'Space') {
+    // check if note is already playing
+    let note = playingNotes.find((n) => n.pitch === 440);
+    if (!note) {
+      // create new note and start it
+      note = new Note(440);
+      note.start();
+      playingNotes.push(note);
+    }
+  }
+});
+
+// listen for up arrow key release
+window.addEventListener('keyup', function(event) {
+  if (event.code === 'ArrowUp') {
+    // find note and stop it
+    const noteIndex = playingNotes.findIndex((n) => n.pitch === 220);
+    if (noteIndex !== -1) {
+      const note = playingNotes[noteIndex];
+      note.stop();
+      playingNotes.splice(noteIndex, 1);
+    }
+  } else if (event.code === 'Space') {
+    // find note and stop it
+    const noteIndex = playingNotes.findIndex((n) => n.pitch === 440);
+    if (noteIndex !== -1) {
+      const note = playingNotes[noteIndex];
+      note.stop();
+      playingNotes.splice(noteIndex, 1);
+    }
+  }
+});
+</script>
+</body>
+</html>
