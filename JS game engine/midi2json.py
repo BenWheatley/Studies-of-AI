@@ -1,86 +1,82 @@
 import sys
 import struct
 
-# Define MIDI message types
-NOTE_ON = 0x90
-NOTE_OFF = 0x80
+def read_midi_file(filename):
+    with open(filename, 'rb') as f:
+        header = f.read(14)
+        assert header[:4] == b'MThd', "Invalid MIDI file header"
+        format_type, n_tracks, division = struct.unpack('>HHH', header[8:])
+        assert format_type == 1, "Only MIDI format type 1 is supported"
+        tracks = []
+        for _ in range(n_tracks):
+            track_header = f.read(8)
+            assert track_header[:4] == b'MTrk', "Invalid MIDI track header"
+            track_length = struct.unpack('>I', track_header[4:])[0]
+            track_data = f.read(track_length)
+            tracks.append(track_data)
+    return tracks
 
-# Define utility functions
-def get_time(msb, lsb):
-    """Convert two bytes representing time to an integer"""
-    return (msb << 8) + lsb
-
-def get_pitch(note):
-    """Convert MIDI note number to scientific pitch notation"""
-    pitches = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
-    octave = (note // 12) - 1
-    pitch = pitches[note % 12]
-    return pitch + str(octave)
-
-# Check for command line argument
-if len(sys.argv) < 2:
-    print("Usage: midi_to_json.py <filename>")
-    sys.exit()
-
-# Read MIDI file
-filename = sys.argv[1]
-with open(filename, "rb") as f:
-    # Read header chunk
-    header = f.read(14)
-    header_fmt = ">4sLHHH"
-    _, _, _, _, _, format_type = struct.unpack(header_fmt, header)
-    if format_type != 1:
-        print("Unsupported MIDI format type:", format_type)
-        sys.exit()
-    _, num_tracks, ticks_per_beat = struct.unpack(header_fmt, header)
-
-    # Read track chunks
-    tracks = []
-    for i in range(num_tracks):
-        track_header = f.read(8)
-        track_header_fmt = ">4sL"
-        _, track_size = struct.unpack(track_header_fmt, track_header)
-        track_data = f.read(track_size)
-        tracks.append(track_data)
-
-# Parse MIDI events and convert to JSON
-events = []
-for track_data in tracks:
-    pos = 0
+def parse_midi_track(track_data):
+    notes = []
     time = 0
-    note_on = {}
-    while pos < len(track_data):
-        delta_time = 0
-        while True:
-            byte = track_data[pos]
-            delta_time = (delta_time << 7) + (byte & 0x7f)
-            pos += 1
-            if byte < 0x80:
-                break
+    for chunk in split_track_into_chunks(track_data):
+        delta_time, event_type, event_data = parse_midi_event(chunk)
         time += delta_time
+        if event_type == 'NoteOn':
+            pitch, velocity = event_data
+            notes.append({'pitch': pitch_to_scientific_notation(pitch), 'startTime': time, 'duration': None, 'velocity': velocity})
+        elif event_type == 'NoteOff':
+            pitch, velocity = event_data
+            last_note = find_last_note_with_pitch(notes, pitch)
+            if last_note:
+                last_note['duration'] = time - last_note['startTime']
+    return notes
 
-        byte = track_data[pos]
-        pos += 1
-        if byte == NOTE_ON:
-            note, velocity = struct.unpack(">BB", track_data[pos:pos+2])
-            pos += 2
-            if velocity > 0:
-                note_on[note] = time
-            else:
-                pitch = get_pitch(note)
-                start_time = note_on[note]
-                duration = time - start_time
-                events.append({"pitch": pitch, "startTime": start_time, "duration": duration, "velocity": velocity})
-                del note_on[note]
-        elif byte == NOTE_OFF:
-            note, velocity = struct.unpack(">BB", track_data[pos:pos+2])
-            pos += 2
-            pitch = get_pitch(note)
-            start_time = note_on[note]
-            duration = time - start_time
-            events.append({"pitch": pitch, "startTime": start_time, "duration": duration, "velocity": velocity})
-            del note_on[note]
+def split_track_into_chunks(track_data):
+    i = 0
+    while i < len(track_data):
+        delta_time, i = read_variable_length_quantity(track_data, i)
+        event_type = track_data[i]
+        i += 1
+        if event_type & 0x80:
+            # Event type is specified directly in the status byte
+            event_data_length = 0
+        else:
+            # Event type is implied from the previous event
+            event_type = last_event_type
+            event_data_length = last_event_data_length
+        last_event_type = event_type
+        last_event_data_length = event_data_length
+        event_data = track_data[i:i+event_data_length]
+        i += event_data_length
+        yield (delta_time, event_type, event_data)
 
-# Output JSON data to STDOUT
-import json
-print(json.dumps(events))
+def parse_midi_event(event_chunk):
+    delta_time, event_type_byte, event_data = event_chunk
+    event_type = EVENT_TYPES.get(event_type_byte & 0xF0, 'Unknown')
+    if event_type == 'NoteOff' and event_data[1] == 0:
+        # NoteOff with velocity 0 is equivalent to NoteOn with velocity 0
+        event_type = 'NoteOn'
+    if event_type in ('NoteOn', 'NoteOff'):
+        pitch, velocity = event_data
+        return (delta_time, event_type, (pitch, velocity))
+    else:
+        return (delta_time, event_type, event_data)
+
+def pitch_to_scientific_notation(pitch):
+    octave = pitch // 12 - 1
+    note = NOTES[pitch % 12]
+    return f'{note}{octave}'
+
+def find_last_note_with_pitch(notes, pitch):
+    for note in reversed(notes):
+        if note['pitch'] == pitch_to_scientific_notation(pitch):
+            return note
+    return None
+
+def read_variable_length_quantity(data, i):
+    value = 0
+    while True:
+        byte = data[i]
+        i += 1
+        value = (value << 7) | (
