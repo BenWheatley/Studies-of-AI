@@ -5,28 +5,48 @@
 </head>
 <body>
   <h1>Sound Test</h1>
-  <p>Press the space bar to play a 440 Hz sine wave, or the up arrow to play a 220 Hz sine wave.</p>
+  <p>Press the middle row of keys to play white notes, and the top row to play black notes.</p>
 
   <script src="SimpleMusic.js"></script>
   <script>
     const audioCtx = new AudioContext();
 
+    const whiteNotes = {
+      'a': 'C4',
+      's': 'D4',
+      'd': 'E4',
+      'f': 'F4',
+      'g': 'G4',
+      'h': 'A4',
+      'j': 'B4',
+      'k': 'C5',
+      'l': 'D5',
+      ';': 'E5',
+      "'": 'F5',
+    };
+
+    const blackNotes = {
+      'w': 'C#4',
+      'e': 'D#4',
+      't': 'F#4',
+      'y': 'G#4',
+      'u': 'A#4',
+      'z': 'Db4',
+      'x': 'Eb4',
+      'c': 'Gb4',
+      'v': 'Ab4',
+      'b': 'Bb4',
+    };
+
     const notes = {};
 
     function onKeyDown(event) {
-      let note;
-      switch (event.code) {
-        case 'Space':
-          note = new Note('A4');
-          break;
-        case 'ArrowUp':
-          note = new Note('A3');
-          break;
-        default:
-          return;
+      let noteName = whiteNotes[event.key] || blackNotes[event.key];
+      if (noteName) {
+        const note = new Note(noteName);
+        note.start();
+        notes[event.keyCode] = note;
       }
-      note.start();
-      notes[event.keyCode] = note;
     }
 
     function onKeyUp(event) {
