@@ -79,4 +79,29 @@ def read_variable_length_quantity(data, i):
     while True:
         byte = data[i]
         i += 1
-        value = (value << 7) | (
+        value = (value << 7) | (byte & 0x7F)
+    if byte & 0x80 == 0:
+        return (value, i)
+
+NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+
+EVENT_TYPES = {
+0x80: 'NoteOff',
+0x90: 'NoteOn',
+0xA0: 'Aftertouch',
+0xB0: 'Controller',
+0xC0: 'ProgramChange',
+0xD0: 'ChannelAftertouch',
+0xE0: 'PitchBend'
+}
+
+if name == 'main':
+	assert len(sys.argv) == 2, f"Usage: {sys.argv[0]} <midi_filename>"
+	filename = sys.argv[1]
+	tracks = read_midi_file(filename)
+	instruments = []
+	for track_data in tracks[1:]:
+		notes = parse_midi_track(track_data)
+		if notes:
+			instruments.append({'instrument': 'Unknown', 'notes': notes})
+	print(json.dumps(instruments))
