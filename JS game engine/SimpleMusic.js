@@ -51,21 +51,26 @@ class Note {
     this.oscillator = null;
   }
 
-  static start(key) {
-    stop(key);
-    let noteName = whiteNotes[key] || blackNotes[key];
-    if (noteName) {
-      const note = new Note(noteName);
-      note.start();
-      Note.notes[key] = note;
+  static start(noteName) {
+    if (noteName == null) {
+      return;
     }
+    stop(noteName);
+    const note = new Note(noteName);
+    note.start();
+    Note.notes[noteName] = note;
   }
   
-  static stop(key) {
-    if (key in Note.notes) {
-      const note = Note.notes[key];
-      note.stop();
-      delete Note.notes[key];
+  static stop(noteName) {
+    if (!(noteName in Note.notes)) {
+      return;
     }
+    const note = Note.notes[noteName];
+    note.stop();
+    delete Note.notes[noteName];
+  }
+  
+  static eventToNote(event) {
+    return whiteNotes[event.key] || blackNotes[event.key];
   }
 }

@@ -41,15 +41,47 @@
     const notes = {};
 
     function onKeyDown(event) {
-      Note.start(event.key);
+      Note.start(Note.eventToNote(event));
     }
 
     function onKeyUp(event) {
-      Note.stop(event.key);
+      Note.stop(Note.eventToNote(event));
     }
 
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('keyup', onKeyUp);
-  </script>
+    
+      // Define the notes of the melody
+      const melody = [
+        "E5", "E5", "F5", "G5",
+        "G5", "F5", "E5", "D5",
+        "C5", "C5", "D5", "E5",
+        "E5", "D5", "D5"
+      ];
+
+      // Define the duration of each note in milliseconds
+      const duration = 500;
+
+      // Define a function to play the melody
+      async function playMelody() {
+        for (let i = 0; i < melody.length; i++) {
+          // Play the current note
+          Note.start(melody[i]);
+          await sleep(duration);
+          Note.stop(melody[i]);
+          
+          // Pause briefly before playing the next note
+          await sleep(50);
+        }
+      }
+
+      // Define a helper function to pause for a given number of milliseconds
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+      // Start playing the melody when the page loads
+      window.addEventListener("load", playMelody);
+    </script>
 </body>
 </html>
