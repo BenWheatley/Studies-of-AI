@@ -54,7 +54,7 @@ def split_track_into_chunks(track_data):
 def parse_midi_event(event_chunk):
     delta_time, event_type_byte, event_data = event_chunk
     event_type = EVENT_TYPES.get(event_type_byte & 0xF0, 'Unknown')
-    if event_type == 'NoteOff' and event_data[1] == 0:
+    if event_type == 'NoteOff' and len(event_data) > 1 and event_data[1] == 0:
         # NoteOff with velocity 0 is equivalent to NoteOn with velocity 0
         event_type = 'NoteOn'
     if event_type in ('NoteOn', 'NoteOff'):
