@@ -1,5 +1,6 @@
 import sys
 import struct
+import json
 
 def read_midi_file(filename):
     with open(filename, 'rb') as f:
