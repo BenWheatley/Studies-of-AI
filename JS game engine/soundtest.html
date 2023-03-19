@@ -41,20 +41,11 @@
     const notes = {};
 
     function onKeyDown(event) {
-      let noteName = whiteNotes[event.key] || blackNotes[event.key];
-      if (noteName) {
-        const note = new Note(noteName);
-        note.start();
-        notes[event.keyCode] = note;
-      }
+      Note.start(event.key);
     }
 
     function onKeyUp(event) {
-      if (event.keyCode in notes) {
-        const note = notes[event.keyCode];
-        note.stop();
-        delete notes[event.keyCode];
-      }
+      Note.stop(event.key);
     }
 
     document.addEventListener('keydown', onKeyDown);

@@ -1,4 +1,8 @@
 class Note {
+  static notes = {};
+  static baseFrequency = 440;
+  static noteLetters = 'C C# D D# E F F# G G# A A# B'.split(' ');
+  
   constructor(note) {
     this.note = note;
     this.frequency = this.getFrequencyFromNote();
@@ -46,7 +50,22 @@ class Note {
     this.oscillator.disconnect();
     this.oscillator = null;
   }
-}
 
-Note.baseFrequency = 440;
-Note.noteLetters = 'C C# D D# E F F# G G# A A# B'.split(' ');
+  static start(key) {
+    stop(key);
+    let noteName = whiteNotes[key] || blackNotes[key];
+    if (noteName) {
+      const note = new Note(noteName);
+      note.start();
+      Note.notes[key] = note;
+    }
+  }
+  
+  static stop(key) {
+    if (key in Note.notes) {
+      const note = Note.notes[key];
+      note.stop();
+      delete Note.notes[key];
+    }
+  }
+}
