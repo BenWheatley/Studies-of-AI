@@ -20,7 +20,7 @@ class Note {
       throw new Error(`Invalid note: ${this.note}`);
     }
 
-    let frequency = Note.baseFrequency * Math.pow(2, (noteIndex - 9) / 12 + octave);
+    let frequency = Note.baseFrequency * Math.pow(2, (noteIndex - 9) / 12 + (octave - 4));
 
     if (accidental) {
       if (accidental === '#' || accidental === '♯') {
