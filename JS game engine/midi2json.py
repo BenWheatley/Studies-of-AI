@@ -58,7 +58,7 @@ def parse_midi_event(event_chunk):
         # NoteOff with velocity 0 is equivalent to NoteOn with velocity 0
         event_type = 'NoteOn'
     if event_type in ('NoteOn', 'NoteOff'):
-        pitch, velocity = event_data
+        pitch, velocity = event_data[:2] if len(event_data) >= 2 else (0, 0)
         return (delta_time, event_type, (pitch, velocity))
     else:
         return (delta_time, event_type, event_data)
