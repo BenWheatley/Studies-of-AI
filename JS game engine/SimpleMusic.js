@@ -1,39 +1,52 @@
 class Note {
-  constructor(pitch) {
-    this.pitch = pitch;
+  constructor(note) {
+    this.note = note;
+    this.frequency = this.getFrequencyFromNote();
     this.oscillator = null;
-    this.isPlaying = false;
+  }
+
+  getFrequencyFromNote() {
+    const pitchRegex = /^([A-Ga-g])(#|♯|b|♭)?(\d+)$/;
+    const match = pitchRegex.exec(this.note);
+    if (!match) {
+      throw new Error(`Invalid note: ${this.note}`);
+    }
+    const noteLetter = match[1].toUpperCase();
+    const accidental = match[2];
+    const octave = parseInt(match[3], 10);
+
+    const noteIndex = Note.noteLetters.indexOf(noteLetter);
+    if (noteIndex === -1) {
+      throw new Error(`Invalid note: ${this.note}`);
+    }
+
+    let frequency = Note.baseFrequency * Math.pow(2, (noteIndex - 9) / 12 + octave);
+
+    if (accidental) {
+      if (accidental === '#' || accidental === '♯') {
+        frequency *= Math.pow(2, 1 / 12);
+      } else if (accidental === 'b' || accidental === '♭') {
+        frequency /= Math.pow(2, 1 / 12);
+      } else {
+        throw new Error(`Invalid note: ${this.note}`);
+      }
+    }
+
+    return frequency;
   }
 
   start() {
-    if (!this.isPlaying) {
-      // create audio context
-      const audioContext = new AudioContext();
-
-      // create oscillator
-      this.oscillator = audioContext.createOscillator();
-      this.oscillator.type = 'sine';
-      this.oscillator.frequency.setValueAtTime(this.pitch, audioContext.currentTime);
-
-      // connect oscillator to audio context output
-      this.oscillator.connect(audioContext.destination);
-
-      // start oscillator
-      this.oscillator.start();
-
-      // mark note as playing
-      this.isPlaying = true;
-    }
+    this.oscillator = new OscillatorNode(audioCtx, { type: 'sine', frequency: this.frequency });
+    this.oscillator.connect(audioCtx.destination);
+    this.oscillator.start();
   }
 
   stop() {
-    if (this.isPlaying) {
-      // stop oscillator
-      this.oscillator.stop();
-      this.oscillator.disconnect();
-
-      // mark note as not playing
-      this.isPlaying = false;
-    }
+    this.oscillator.stop();
+    this.oscillator.disconnect();
+    this.oscillator = null;
   }
 }
+
+Note.baseFrequency = 440;
+Note.noteLetters = 'C C# D D# E F F# G G# A A# B'.split(' ');

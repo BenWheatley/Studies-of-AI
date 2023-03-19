@@ -1,53 +1,44 @@
+<!DOCTYPE html>
 <html>
+<head>
+  <title>Sound Test</title>
+</head>
 <body>
-<script src="SimpleMusic.js"></script>
-<script>
-// create array to keep track of playing notes
-const playingNotes = [];
+  <h1>Sound Test</h1>
+  <p>Press the space bar to play a 440 Hz sine wave, or the up arrow to play a 220 Hz sine wave.</p>
 
-// listen for up arrow key press
-window.addEventListener('keydown', function(event) {
-  if (event.code === 'ArrowUp') {
-    // check if note is already playing
-    let note = playingNotes.find((n) => n.pitch === 220);
-    if (!note) {
-      // create new note and start it
-      note = new Note(220);
-      note.start();
-      playingNotes.push(note);
-    }
-  } else if (event.code === 'Space') {
-    // check if note is already playing
-    let note = playingNotes.find((n) => n.pitch === 440);
-    if (!note) {
-      // create new note and start it
-      note = new Note(440);
-      note.start();
-      playingNotes.push(note);
-    }
-  }
-});
+  <script src="SimpleMusic.js"></script>
+  <script>
+    const audioCtx = new AudioContext();
 
-// listen for up arrow key release
-window.addEventListener('keyup', function(event) {
-  if (event.code === 'ArrowUp') {
-    // find note and stop it
-    const noteIndex = playingNotes.findIndex((n) => n.pitch === 220);
-    if (noteIndex !== -1) {
-      const note = playingNotes[noteIndex];
-      note.stop();
-      playingNotes.splice(noteIndex, 1);
+    const notes = {};
+
+    function onKeyDown(event) {
+      let note;
+      switch (event.code) {
+        case 'Space':
+          note = new Note('A4');
+          break;
+        case 'ArrowUp':
+          note = new Note('A3');
+          break;
+        default:
+          return;
+      }
+      note.start();
+      notes[event.keyCode] = note;
     }
-  } else if (event.code === 'Space') {
-    // find note and stop it
-    const noteIndex = playingNotes.findIndex((n) => n.pitch === 440);
-    if (noteIndex !== -1) {
-      const note = playingNotes[noteIndex];
-      note.stop();
-      playingNotes.splice(noteIndex, 1);
+
+    function onKeyUp(event) {
+      if (event.keyCode in notes) {
+        const note = notes[event.keyCode];
+        note.stop();
+        delete notes[event.keyCode];
+      }
     }
-  }
-});
-</script>
+
+    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener('keyup', onKeyUp);
+  </script>
 </body>
 </html>
