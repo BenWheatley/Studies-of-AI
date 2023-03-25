@@ -35,13 +35,28 @@ def parse_midi_track(track_data):
 
 def split_track_into_chunks(track_data):
     i = 0
+    last_event_type = 0
+    last_event_data_length = 0
     while i < len(track_data):
         delta_time, i = read_variable_length_quantity(track_data, i)
         event_type = track_data[i]
         i += 1
         if event_type & 0x80:
             # Event type is specified directly in the status byte
-            event_data_length = 0
+            if event_type == 0xff:
+                # Meta event
+                event_type = track_data[i]
+                i += 1
+                event_data_length, i = read_variable_length_quantity(track_data, i)
+            elif event_type == 0xf0 or event_type == 0xf7:
+                # Sysex event
+                event_data_length, i = read_variable_length_quantity(track_data, i)
+            else:
+                # Channel event
+                event_data_length = {
+                    0x80: 2, 0x90: 2, 0xa0: 2, 0xb0: 2,
+                    0xc0: 1, 0xd0: 1, 0xe0: 2
+                }.get(event_type & 0xf0, 0)
         else:
             # Event type is implied from the previous event
             event_type = last_event_type
@@ -49,9 +64,9 @@ def split_track_into_chunks(track_data):
         last_event_type = event_type
         last_event_data_length = event_data_length
         event_data = track_data[i:i+event_data_length]
-        print("event_data_length = ", event_data_length)
         i += event_data_length
         yield (delta_time, event_type, event_data)
+
 
 def parse_midi_event(event_chunk):
     delta_time, event_type_byte, event_data = event_chunk
