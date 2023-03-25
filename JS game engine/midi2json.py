@@ -53,10 +53,9 @@ def split_track_into_chunks(track_data):
                 event_data_length, i = read_variable_length_quantity(track_data, i)
             else:
                 # Channel event
-                event_data_length = {
-                    0x80: 2, 0x90: 2, 0xa0: 2, 0xb0: 2,
-                    0xc0: 1, 0xd0: 1, 0xe0: 2
-                }.get(event_type & 0xf0, 0)
+                _, event_data_length = get_midi_event_info(event_type & 0xF0)
+                if event_data_length < 0:
+                	event_data_length = 0
         else:
             # Event type is implied from the previous event
             event_type = last_event_type
@@ -70,7 +69,7 @@ def split_track_into_chunks(track_data):
 
 def parse_midi_event(event_chunk):
     delta_time, event_type_byte, event_data = event_chunk
-    event_type = EVENT_TYPES.get(event_type_byte & 0xF0, 'Unknown')
+    event_type, _ = get_midi_event_info(event_type_byte & 0xF0)
     if event_type == 'NoteOff' and len(event_data) > 1 and event_data[1] == 0:
         # NoteOff with velocity 0 is equivalent to NoteOn with velocity 0
         event_type = 'NoteOn'
@@ -102,15 +101,28 @@ def read_variable_length_quantity(data, i):
 
 NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
-EVENT_TYPES = {
-0x80: 'NoteOff',
-0x90: 'NoteOn',
-0xA0: 'Aftertouch',
-0xB0: 'Controller',
-0xC0: 'ProgramChange',
-0xD0: 'ChannelAftertouch',
-0xE0: 'PitchBend'
-}
+def get_midi_event_info(event_type):
+    # Create a dictionary mapping event types to event names and data lengths
+    event_info = {
+        0x80: ('NoteOff', 2),
+        0x90: ('NoteOn', 2),
+        0xA0: ('PolyphonicKeyPressure', 2),
+        0xB0: ('ControlChange', 2),
+        0xC0: ('ProgramChange', 1),
+        0xD0: ('ChannelPressure', 1),
+        0xE0: ('PitchBend', 2),
+        0xF0: ('SysEx', -1),
+        0xF7: ('SysEx', -1),
+        0xFF: ('MetaEvent', -1)
+    }
+    
+    # Check if the event type is in the dictionary
+    if event_type in event_info:
+        # Return the event name and data length for this event type
+        return event_info[event_type]
+    else:
+        # Unknown event type
+        return ('Unknown', 0)
 
 if __name__ == '__main__':
     assert len(sys.argv) == 2, f"Usage: {sys.argv[0]} <midi_filename>"
