@@ -25,7 +25,7 @@ def parse_midi_track(track_data):
         time += delta_time
         if event_type == 'NoteOn':
             pitch, velocity = event_data
-            notes.append({'pitch': pitch_to_scientific_notation(pitch), 'startTime': time, 'duration': None, 'velocity': velocity})
+            notes.append({'pitch': pitch, 'startTime': time, 'duration': None, 'velocity': velocity})
         elif event_type == 'NoteOff':
             pitch, velocity = event_data
             last_note = find_last_note_with_pitch(notes, pitch)
@@ -49,6 +49,7 @@ def split_track_into_chunks(track_data):
         last_event_type = event_type
         last_event_data_length = event_data_length
         event_data = track_data[i:i+event_data_length]
+        print("event_data_length = ", event_data_length)
         i += event_data_length
         yield (delta_time, event_type, event_data)
 
