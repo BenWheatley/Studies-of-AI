@@ -31,6 +31,10 @@ def parse_midi_track(track_data):
             last_note = find_last_note_with_pitch(notes, pitch)
             if last_note:
                 last_note['duration'] = time - last_note['startTime']
+            else:
+                print("last_note['duration'] - didn't find note")
+        else:
+            print("surprise eventtype = ", event_type)
     return notes
 
 def split_track_into_chunks(track_data):
@@ -70,23 +74,18 @@ def split_track_into_chunks(track_data):
 def parse_midi_event(event_chunk):
     delta_time, event_type_byte, event_data = event_chunk
     event_type, _ = get_midi_event_info(event_type_byte & 0xF0)
-    if event_type == 'NoteOff' and len(event_data) > 1 and event_data[1] == 0:
+    if event_type == 'NoteOn' and len(event_data) > 1 and event_data[1] == 0:
         # NoteOff with velocity 0 is equivalent to NoteOn with velocity 0
-        event_type = 'NoteOn'
+        event_type = 'NoteOff'
     if event_type in ('NoteOn', 'NoteOff'):
         pitch, velocity = event_data[:2] if len(event_data) >= 2 else (0, 0)
         return (delta_time, event_type, (pitch, velocity))
     else:
         return (delta_time, event_type, event_data)
 
-def pitch_to_scientific_notation(pitch):
-    octave = pitch // 12 - 1
-    note = NOTES[pitch % 12]
-    return f'{note}{octave}'
-
 def find_last_note_with_pitch(notes, pitch):
     for note in reversed(notes):
-        if note['pitch'] == pitch_to_scientific_notation(pitch):
+        if note['pitch'] == pitch:
             return note
     return None
 
@@ -122,7 +121,7 @@ def get_midi_event_info(event_type):
         return event_info[event_type]
     else:
         # Unknown event type
-        return ('Unknown', 0)
+        return (f'Unknown {event_type}', 0)
 
 if __name__ == '__main__':
     assert len(sys.argv) == 2, f"Usage: {sys.argv[0]} <midi_filename>"
