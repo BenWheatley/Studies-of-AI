@@ -1,4 +1,47 @@
+# A global power grid
+
+## TL;DR:
+
+A global grid:
+
+1. approximated as a single 40,000 km long ring
+2. with a 1m^2 cross section
+3. made of Aluminium
+4. assuming it is designed for 2 TW of resistive losses
+
+Would have:
+
+1. a resistance of 1.06 ohms
+2. a current of 1.43 million amperes
+3. a voltage of 1.52 megavolts
+
+Assuming 2m^2, this would be changed to 
+
+1. 0.53 ohms
+2. 1.94 x 10^6 amperes
+3. 1.03 megavolts
+4. Mass 216e9 kg (≈ 3.375 years of global production)
+5. At 2212.91 USD/Tonne, cost $478e9
+
+If resistive losses are reduced to 1 TW while keeping a cross section of 2m^2 (and hence resistance):
+
+1. 1.37 x 10^6 amperes
+2. 726.1 kilovolts
+3. Match lower end of Earth's geomagnetic field at a distance of 10960 meters (assuming near-field approximation of an infinite straight-line conductor applies)
+4. Have a near-surface field strength in the order of 0.1 tesla (same assumption)
+
+Replacing the aluminium with iron, but targeting the same 0.53 ohm resistance and 1 TW losses:
+
+1. Cross section now 7.328 square meters
+2. Mass 2.3e12 kg (≈ 1.21 years global production)
+3. Cost ≈ $1.18 trillion (assuming recent steel spot price of $511.8/ton price rather than much lower iron ore price)
+
+
 # ChatGPT session
+
+Preamble, not part of the chat session: I don't assume any claim is correct, so I did try to check everything, or at least eyeball it; this has led to a few attempts to get it to have another go, and in some cases me giving up and telling it the right answer before continuing.
+
+But I don't want people thinking I'm perfect at that, I want to be up-front that some things may have slipped past me.
 
 ---
 
