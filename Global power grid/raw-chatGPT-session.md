@@ -28,7 +28,7 @@ If resistive losses are reduced to 1 TW while keeping a cross section of 2m^2 (a
 1. 1.37 x 10^6 amperes
 2. 726.1 kilovolts
 3. Match lower end of Earth's geomagnetic field at a distance of 10960 meters (assuming near-field approximation of an infinite straight-line conductor applies)
-4. Have a near-surface field strength in the order of 0.1 tesla (same assumption)
+4. Have a near-surface field strength in the order of 0.34 teslas (same assumption)
 
 Replacing the aluminium with iron, but targeting the same 0.53 ohm resistance and 1 TW losses:
 
