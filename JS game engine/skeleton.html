@@ -22,29 +22,29 @@
 		var canvas = document.getElementById("gameCanvas");
 		// Get the 2D context
 		var context = canvas.getContext("2d");
-
+		
 		// Create a new vector object
 		var mousePos = {
 			x: 0,
 			y: 0
 		};
-
+		
 		var lastCallTime = Date.now();
-
+		
 		// Update the mouse position
 		function setMousePosition(e) {
 			mousePos.x = e.clientX;
 			mousePos.y = e.clientY;
 		}
-
+		
 		// Add event listener for mouse movement
 		canvas.addEventListener("mousemove", setMousePosition);
-
+		
 		// Render loop
 		function render() {
 			// Clear the canvas
 			context.clearRect(0, 0, 800, 600);
-
+			
 			// Draw a circle at the mouse position
 			context.beginPath();
 			context.arc(mousePos.x, mousePos.y, 50, 0, 2 * Math.PI, false);
@@ -54,12 +54,12 @@
 			context.strokeStyle = "black";
 			context.stroke();
 		}
-
+		
 		// Update loop
 		function update(deltaTime) {
 			// Nothing to do here
 		}
-
+		
 		// Game loop
 		function loop() {
 			var currentTime = Date.now();
@@ -70,7 +70,7 @@
 			// Call the loop function again
 			window.requestAnimationFrame(loop);
 		}
-
+		
 		// Call the loop function for the first time
 		loop();
 	</script>
