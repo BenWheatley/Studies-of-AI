@@ -7,6 +7,13 @@ class Sprite {
 		this.createPixelDataFromCurrentBitmap();
 	}
 	
+	static async buildSprite(imageUrl, position, size, context) {
+		const response = await fetch(imageUrl);
+		const blob = await response.blob();
+		const imageBitmap = await createImageBitmap(blob);
+		return new Sprite(imageBitmap, position, size, context);
+	}
+	
 	createPixelDataFromCurrentBitmap() {
 		const offscreen = new OffscreenCanvas(this.imageBitmap.width, this.imageBitmap.height);
 		const context = offscreen.getContext('bitmaprenderer');
