@@ -45,7 +45,7 @@ class Sprite {
 		const pixelY = Math.floor((point.y - spriteTopLeft.y) * (this.imageBitmap.height / this.size.y));
 		
 		// Get the pixel data and check alpha value
-		const index = (pixelY * this.image.width + pixelX) * 4;
+		const index = (pixelY * this.imageBitmap.width + pixelX) * 4;
 		const alpha = this.pixelData[index + 3];
 		return alpha > 0;
 	}
