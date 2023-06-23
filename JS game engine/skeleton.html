@@ -26,10 +26,7 @@
 		var context = canvas.getContext("2d");
 		
 		// Create a new vector object
-		var mousePos = {
-			x: 0,
-			y: 0
-		};
+		var mousePos = new Vector2D();
 		
 		const playerSize = 32;
 		let playerSprite;
@@ -65,7 +62,10 @@
 		
 		// Update loop
 		function update(deltaTime) {
-			// Nothing to do here
+			if (playerSprite != undefined) {
+				playerSprite.position.x = mousePos.x
+				playerSprite.position.y = mousePos.y
+			}
 		}
 		
 		// Game loop
