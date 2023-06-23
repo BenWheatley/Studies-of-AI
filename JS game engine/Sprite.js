@@ -24,7 +24,7 @@ class Sprite {
 		);
 		this.pixelData = imageData.data;
 	}
-
+	
 	draw() {
 		this.context.drawImage(
 			this.imageBitmap,

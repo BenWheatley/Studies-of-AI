@@ -14,6 +14,8 @@
 			border: 1px solid black;
 		}
 	</style>
+	<script type="text/javascript" src="Vector2D.js"></script>
+	<script type="text/javascript" src="Sprite.js"></script>
 </head>
 <body>
 	<canvas id="gameCanvas" width="800" height="600"></canvas>
@@ -29,6 +31,17 @@
 			y: 0
 		};
 		
+		const playerSize = 32;
+		let playerSprite;
+		(async () => {
+			playerSprite = await Sprite.buildSprite(
+				'player-ship.png',
+				new Vector2D((canvas.width-playerSize) / 2, canvas.height-playerSize),
+				new Vector2D(playerSize, playerSize),
+				context
+			);
+		})();
+		
 		var lastCallTime = Date.now();
 		
 		// Update the mouse position
@@ -43,16 +56,11 @@
 		// Render loop
 		function render() {
 			// Clear the canvas
-			context.clearRect(0, 0, 800, 600);
+			context.clearRect(0, 0, canvas.width, canvas.height);
 			
-			// Draw a circle at the mouse position
-			context.beginPath();
-			context.arc(mousePos.x, mousePos.y, 50, 0, 2 * Math.PI, false);
-			context.fillStyle = "green";
-			context.fill();
-			context.lineWidth = 5;
-			context.strokeStyle = "black";
-			context.stroke();
+			if (playerSprite != undefined) {
+				playerSprite.draw();
+			}
 		}
 		
 		// Update loop
