@@ -10,7 +10,7 @@ class Sprite {
     context.drawImage(this.image, this.position.x, this.position.y, this.size.x, this.size.y);
   }
 
-  move(vector) {
+  moveBy(vector) {
     this.position = this.position.add(vector);
   }
 }
