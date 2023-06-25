@@ -8,7 +8,8 @@ class GPTEngine {
 		return GPTEngine.instance;
 	}
 	
-	enterFullScreen(element) {
+	enterFullScreen() {
+		const element = this._document.documentElement;
 		if (element.requestFullscreen) {
 			element.requestFullscreen();
 		} else if (element.mozRequestFullScreen) { // Firefox
@@ -29,6 +30,24 @@ class GPTEngine {
 			this._document.webkitExitFullscreen();
 		} else if (this._document.msExitFullscreen) { // IE/Edge
 			this._document.msExitFullscreen();
+		}
+	}
+	
+	get isFullScreen() {
+		const doc = this._document;
+		return (
+			doc.fullscreenElement ||
+			doc.mozFullScreenElement ||
+			doc.webkitFullscreenElement ||
+			doc.msFullscreenElement
+		);
+	}
+	
+	toggleFullScreen() {
+		if (this.isFullScreen) {
+			this.exitFullScreen();
+		} else {
+			this.enterFullScreen();
 		}
 	}
 	

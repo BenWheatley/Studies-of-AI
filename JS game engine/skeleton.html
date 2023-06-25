@@ -14,6 +14,7 @@
 			border: 1px solid black;
 		}
 	</style>
+	<script type="text/javascript" src="GPTEngine.js"></script>
 	<script type="text/javascript" src="Vector2D.js"></script>
 	<script type="text/javascript" src="Sprite.js"></script>
 </head>
@@ -24,6 +25,7 @@
 		const canvas = document.getElementById("gameCanvas");
 		// Get the 2D context
 		const context = canvas.getContext("2d");
+		const engine = GPTEngine.getInstance(document);
 		
 		// Update user input
 		const mousePos = new Vector2D();
@@ -92,6 +94,12 @@
 			}
 			if (keyDown["ArrowDown"]) {
 				playerSprite.position.y += playerSpeed * deltaTime;
+			}
+			
+			// Toggle fullscreen on ESC key
+			if (keyDown["Escape"]) {
+				keyDown["Escape"] = false;
+				GPTEngine.instance.toggleFullScreen();
 			}
 		}
 		
