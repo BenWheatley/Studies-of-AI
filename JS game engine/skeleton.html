@@ -28,44 +28,54 @@
 		const context = canvas.getContext("2d");
 		
 		const engine = GPTEngine.begin(document, canvasName);
+		Sprite.begin(context);
 		
 		const playerSize = 48;
 		const playerSpeed = 10/100.0; // pixels per millisecond
+		const alienSize = 48;
+		const alienSpeed = 10/100.0; // pixels per millisecond
 		let backgroundSprite;
 		let playerSprite;
+		let aliens = [];
+		let alienDelayMilliseconds = 5000;
+		let lastAlienTime = Date.now();
 		(async () => {
-			backgroundSprite = await Sprite.buildSprite(
-				'background.png',
-				new Vector2D(0, 0),
-				new Vector2D(canvas.width, canvas.height),
-				context
-			);
-			
-			playerSprite = await Sprite.buildSprite(
-				'player-ship.png',
-				new Vector2D((canvas.width-playerSize) / 2, canvas.height-playerSize),
-				new Vector2D(playerSize, playerSize),
-				context
-			);
+			await Sprite.preloadSprite('background.png');
+			await Sprite.preloadSprite('player-ship.png');
+			await Sprite.preloadSprite('alien-ship.png');
 		})();
+		
+		backgroundSprite = new Sprite(
+			'background.png',
+			new Vector2D(0, 0),
+			new Vector2D(canvas.width, canvas.height)
+		);
+		playerSprite = new Sprite(
+			'player-ship.png',
+			new Vector2D((canvas.width-playerSize) / 2, canvas.height-playerSize),
+			new Vector2D(playerSize, playerSize),
+		);
 		
 		function loading() {
 			return Sprite.stillLoading();
 		}
 		
-		
 		// Render loop
 		function render() {
-			if (loading()) { return }
+			if (loading()) { return; }
 			
 			backgroundSprite.draw();
 			
 			playerSprite.draw();
+			
+			for (const alien of aliens) {
+				alien.draw();
+			}
 		}
 		
 		// Update loop; deltaTime is milliseconds
 		function update(deltaTime) {
-			if (loading()) { return }
+			if (loading()) { return; }
 			
 			if (engine.keyDown["ArrowLeft"]) {
 				playerSprite.position.x -= playerSpeed * deltaTime;
@@ -84,6 +94,20 @@
 			if (engine.keyDown["Escape"]) {
 				engine.keyDown["Escape"] = false;
 				GPTEngine.instance.toggleFullScreen();
+			}
+			
+			if (Date.now() > lastAlienTime + alienDelayMilliseconds) {
+				lastAlienTime = Date.now();
+				const newAlienSprite = new Sprite(
+					'alien-ship.png',
+					new Vector2D(Math.random() * (canvas.width - alienSize), -alienSize),
+					new Vector2D(alienSize, alienSize)
+				);
+				aliens.push(newAlienSprite);
+			}
+			
+			for (const alien of aliens) {
+				alien.position.y += alienSpeed;
 			}
 		}
 		

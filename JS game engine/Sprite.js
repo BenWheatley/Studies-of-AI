@@ -1,37 +1,62 @@
 class Sprite {
-	constructor(imageBitmap, position, size, context) {
-		this.imageBitmap = imageBitmap;
+	constructor(imageUrl, position, size) {
+		this.imageUrl = imageUrl;
+		this.imageBitmap = Sprite.getFromCache(imageUrl);
+		if (!this.imageBitmap) {
+			console.log(`Image not found in cache: ${imageUrl}`);
+		}
 		this.position = position;
 		this.size = size;
-		this.context = context;
 	}
 	
-	static cache = {}; // Static cache object to store image bitmaps
-	static loadingSprites = {}; // Object to store loading sprites status
-	
-	static async buildSprite(imageUrl, position, size, context) {
-		let imageBitmap = Sprite.cache[imageUrl]; // Check if the image is already cached
-		
-		if (!imageBitmap) {
-			Sprite.loadingSprites[imageUrl] = true; // Set loading status to true
-			
-			try {
-				const response = await fetch(imageUrl);
-				const blob = await response.blob();
-				imageBitmap = await createImageBitmap(blob);
-				
-				// Cache the image bitmap for future use
-				Sprite.cache[imageUrl] = imageBitmap;
-				
-				delete Sprite.loadingSprites[imageUrl]; // Remove loading status on success
-			} catch (error) {
-				console.error(`Failed to load sprite: ${imageUrl}`);
-				delete Sprite.loadingSprites[imageUrl]; // Remove loading status on failure
-				throw error; // Rethrow the error to propagate it
-			}
+	draw() {
+		if (!Sprite._context) {
+			throw new Error('Sprite context not set. Call `Sprite.begin(context)` to set the context before drawing.');
+		}
+		if (this.imageBitmap == null) {
+			this.imageBitmap = Sprite.getFromCache(this.imageUrl);
+			return;
 		}
 		
-		return new Sprite(imageBitmap, position, size, context);
+		Sprite._context.drawImage(
+			this.imageBitmap,
+			this.position.x,
+			this.position.y,
+			this.size.x,
+			this.size.y
+		);
+	}
+	
+	static _context;
+	static cache = {};
+	static loadingSprites = {};
+	
+	static async preloadSprite(imageUrl) {
+		if (Sprite.isCached(imageUrl)) {
+			return;
+		}
+		
+		Sprite.loadingSprites[imageUrl] = true;
+		
+		try {
+			const response = await fetch(imageUrl);
+			const blob = await response.blob();
+			const imageBitmap = await createImageBitmap(blob);
+			Sprite.cache[imageUrl] = imageBitmap;
+		} catch (error) {
+			console.error(`Failed to load sprite: ${imageUrl}: ${error}`);
+			throw error;
+		} finally {
+			delete Sprite.loadingSprites[imageUrl];
+		}
+	}
+	
+	static isCached(imageUrl) {
+		return imageUrl in Sprite.cache;
+	}
+	
+	static getFromCache(imageUrl) {
+		return Sprite.cache[imageUrl];
 	}
 	
 	static stillLoading() {
@@ -42,13 +67,7 @@ class Sprite {
 		return loadingSprites.length > 0;
 	}
 	
-	draw() {
-		this.context.drawImage(
-			this.imageBitmap,
-			this.position.x,
-			this.position.y,
-			this.size.x,
-			this.size.y
-		);
+	static begin(context) {
+		Sprite._context = context;
 	}
 }
