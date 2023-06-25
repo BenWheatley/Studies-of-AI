@@ -3,11 +3,31 @@ class GPTEngine {
 		if (!GPTEngine.instance) {
 			this._document = document;
 			this._canvas = document.getElementById(canvasName);
+			this._configureUserInput()
+			
 			GPTEngine.instance = this;
 		}
 		
 		return GPTEngine.instance;
 	}
+	
+	_configureUserInput() {
+		this._mousePos = new Vector2D();
+		this._canvas.addEventListener("mousemove", (e) => {
+			this._mousePos.x = e.clientX;
+			this._mousePos.y = e.clientY;
+		});
+		this._keyDown = {};
+		this._document.addEventListener('keydown', (e) => {
+			this._keyDown[e.key] = true;
+		});
+		this._document.addEventListener('keyup', (e) => {
+			this._keyDown[e.key] = false;
+		});
+	}
+	
+	get mousePos() { return this._mousePos; }
+	get keyDown() { return this._keyDown; }
 	
 	enterFullScreen() {
 		const element = this._document.documentElement;
@@ -61,7 +81,7 @@ class GPTEngine {
 		}
 	}
 	
-	static getInstance(document, canvasName) {
-		return GPTEngine.instance || new GPTEngine(document, canvasName);
+	static begin(document, canvasName) {
+		return new GPTEngine(document, canvasName);
 	}
 }

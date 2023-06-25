@@ -25,21 +25,8 @@
 		const canvas = document.getElementById("gameCanvas");
 		// Get the 2D context
 		const context = canvas.getContext("2d");
-		const engine = GPTEngine.getInstance(document, "gameCanvas");
 		
-		// Update user input
-		const mousePos = new Vector2D();
-		canvas.addEventListener("mousemove", function setMousePosition(e) {
-			mousePos.x = e.clientX;
-			mousePos.y = e.clientY;
-		});
-		const keyDown = {};
-		document.addEventListener('keydown', function (e) {
-			keyDown[e.key] = true;
-		});
-		document.addEventListener('keyup', function (e) {
-			keyDown[e.key] = false;
-		});
+		const engine = GPTEngine.begin(document, "gameCanvas");
 		
 		const playerSize = 48;
 		const playerSpeed = 10/100.0; // pixels per millisecond
@@ -83,22 +70,22 @@
 		function update(deltaTime) {
 			if (loading()) { return }
 			
-			if (keyDown["ArrowLeft"]) {
+			if (engine.keyDown["ArrowLeft"]) {
 				playerSprite.position.x -= playerSpeed * deltaTime;
 			}
-			if (keyDown["ArrowRight"]) {
+			if (engine.keyDown["ArrowRight"]) {
 				playerSprite.position.x += playerSpeed * deltaTime;
 			}
-			if (keyDown["ArrowUp"]) {
+			if (engine.keyDown["ArrowUp"]) {
 				playerSprite.position.y -= playerSpeed * deltaTime;
 			}
-			if (keyDown["ArrowDown"]) {
+			if (engine.keyDown["ArrowDown"]) {
 				playerSprite.position.y += playerSpeed * deltaTime;
 			}
 			
 			// Toggle fullscreen on ESC key
-			if (keyDown["Escape"]) {
-				keyDown["Escape"] = false;
+			if (engine.keyDown["Escape"]) {
+				engine.keyDown["Escape"] = false;
 				GPTEngine.instance.toggleFullScreen();
 			}
 		}
