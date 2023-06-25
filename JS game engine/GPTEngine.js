@@ -1,7 +1,8 @@
 class GPTEngine {
-	constructor(document) {
+	constructor(document, canvasName) {
 		if (!GPTEngine.instance) {
 			this._document = document;
+			this._canvas = document.getElementById(canvasName);
 			GPTEngine.instance = this;
 		}
 		
@@ -19,6 +20,15 @@ class GPTEngine {
 		} else if (element.msRequestFullscreen) { // IE/Edge
 			element.msRequestFullscreen();
 		}
+		
+		// make canvas full screen
+		this._oldStyleCopy = Object.assign({}, this._canvas.style);
+		var style = this._canvas.style;
+		style.position = 'fixed';
+		style.top = '0';
+		style.left = '0';
+		style.width = '100%';
+		style.height = '100%';
 	}
 	
 	exitFullScreen() {
@@ -51,7 +61,7 @@ class GPTEngine {
 		}
 	}
 	
-	static getInstance(document) {
-		return GPTEngine.instance || new GPTEngine(document);
+	static getInstance(document, canvasName) {
+		return GPTEngine.instance || new GPTEngine(document, canvasName);
 	}
 }

@@ -25,7 +25,7 @@
 		const canvas = document.getElementById("gameCanvas");
 		// Get the 2D context
 		const context = canvas.getContext("2d");
-		const engine = GPTEngine.getInstance(document);
+		const engine = GPTEngine.getInstance(document, "gameCanvas");
 		
 		// Update user input
 		const mousePos = new Vector2D();
