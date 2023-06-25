@@ -21,12 +21,13 @@
 <body>
 	<canvas id="gameCanvas" width="800" height="600"></canvas>
 	<script type="text/javascript">
+		const canvasName = "gameCanvas";
 		// Get the canvas element
-		const canvas = document.getElementById("gameCanvas");
+		const canvas = document.getElementById(canvasName);
 		// Get the 2D context
 		const context = canvas.getContext("2d");
 		
-		const engine = GPTEngine.begin(document, "gameCanvas");
+		const engine = GPTEngine.begin(document, canvasName);
 		
 		const playerSize = 48;
 		const playerSpeed = 10/100.0; // pixels per millisecond
@@ -55,7 +56,6 @@
 			);
 		}
 		
-		var lastCallTime = Date.now();
 		
 		// Render loop
 		function render() {
@@ -91,6 +91,7 @@
 		}
 		
 		// Game loop
+		var lastCallTime = Date.now();
 		function loop() {
 			var currentTime = Date.now();
 			var deltaTime = currentTime - lastCallTime;
