@@ -21,17 +21,17 @@
 	<canvas id="gameCanvas" width="800" height="600"></canvas>
 	<script type="text/javascript">
 		// Get the canvas element
-		var canvas = document.getElementById("gameCanvas");
+		const canvas = document.getElementById("gameCanvas");
 		// Get the 2D context
-		var context = canvas.getContext("2d");
+		const context = canvas.getContext("2d");
 		
 		// Update user input
-		var mousePos = new Vector2D();
+		const mousePos = new Vector2D();
 		canvas.addEventListener("mousemove", function setMousePosition(e) {
 			mousePos.x = e.clientX;
 			mousePos.y = e.clientY;
 		});
-		var keyDown = {};
+		const keyDown = {};
 		document.addEventListener('keydown', function (e) {
 			keyDown[e.key] = true;
 		});
