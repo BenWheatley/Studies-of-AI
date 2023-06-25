@@ -40,9 +40,9 @@
 		let alienDelayMilliseconds = 5000;
 		let lastAlienTime = Date.now();
 		(async () => {
-			await Sprite.preloadSprite('background.png');
-			await Sprite.preloadSprite('player-ship.png');
-			await Sprite.preloadSprite('alien-ship.png');
+			await Sprite.preloadSprites(
+				['background.png', 'player-ship.png', 'alien-ship.png']
+				);
 		})();
 		
 		backgroundSprite = new Sprite(

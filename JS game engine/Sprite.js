@@ -31,6 +31,12 @@ class Sprite {
 	static cache = {};
 	static loadingSprites = {};
 	
+	static async preloadSprites(imageUrls) {
+		for (const imageUrl of imageUrls) {
+			await Sprite.preloadSprite(imageUrl);
+		}
+	}
+	
 	static async preloadSprite(imageUrl) {
 		if (Sprite.isCached(imageUrl)) {
 			return;
