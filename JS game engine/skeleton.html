@@ -25,6 +25,27 @@
 		// Get the 2D context
 		var context = canvas.getContext("2d");
 		
+		// Update user input
+		var mousePos = new Vector2D();
+		function setMousePosition(e) {
+			mousePos.x = e.clientX;
+			mousePos.y = e.clientY;
+		}
+		
+		var keyDown = {};
+		function handleKeyDown(e) {
+			keyDown[event.key] = true;
+		}
+		
+		function handleKeyUp(e) {
+			keyDown[event.key] = false;
+		}
+		
+		// Add event listener for mouse movement
+		canvas.addEventListener("mousemove", setMousePosition);
+		document.addEventListener('keydown', handleKeyDown);
+		document.addEventListener('keyup', handleKeyUp);
+		
 		const playerSize = 48;
 		const playerSpeed = 10/100.0; // pixels per millisecond
 		let backgroundSprite;
@@ -53,27 +74,6 @@
 		}
 		
 		var lastCallTime = Date.now();
-		
-		// Update user input
-		var mousePos = new Vector2D();
-		function setMousePosition(e) {
-			mousePos.x = e.clientX;
-			mousePos.y = e.clientY;
-		}
-		
-		var keyDown = {};
-		function handleKeyDown(e) {
-			keyDown[event.key] = true;
-		}
-		
-		function handleKeyUp(e) {
-			keyDown[event.key] = false;
-		}
-		
-		// Add event listener for mouse movement
-		canvas.addEventListener("mousemove", setMousePosition);
-		document.addEventListener('keydown', handleKeyDown);
-		document.addEventListener('keyup', handleKeyUp);
 		
 		// Render loop
 		function render() {
