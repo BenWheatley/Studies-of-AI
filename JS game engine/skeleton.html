@@ -39,6 +39,8 @@
 		let playerSprite;
 		let aliens = [];
 		let alienDelayMilliseconds = 5000;
+		let shots = [];
+		let shotDelayMilliseconds = 500;
 		let lastAlienTime = Date.now();
 		(async () => {
 			await Sprite.preloadSprites(

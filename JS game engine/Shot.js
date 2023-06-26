@@ -1,5 +1,5 @@
 class Shot {
-  static imageUrl = 'shot.png';
+  static imageUrl = 'energy-blast.png';
   static size = new Vector2D(10, 10);
   static velocity = new Vector2D(0, -5);
   static damage = 10;
