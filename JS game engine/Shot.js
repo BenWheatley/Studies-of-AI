@@ -10,6 +10,10 @@ class Shot {
     this.damage = Shot.damage;
   }
 
+  update() {
+    this.sprite.position.add(this.velocity);
+  }
+
   draw() {
     this.sprite.draw();
   }
