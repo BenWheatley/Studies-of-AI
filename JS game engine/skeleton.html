@@ -18,6 +18,7 @@
 	<script type="text/javascript" src="Vector2D.js"></script>
 	<script type="text/javascript" src="Sprite.js"></script>
 	<script type="text/javascript" src="Alien.js"></script>
+	<script type="text/javascript" src="Shot.js"></script>
 </head>
 <body>
 	<canvas id="gameCanvas" width="800" height="600"></canvas>
@@ -74,6 +75,9 @@
 			for (const alien of aliens) {
 				alien.draw();
 			}
+			for (const shot of shots) {
+				shot.draw();
+			}
 		}
 		
 		// Update loop; deltaTime is milliseconds
@@ -92,7 +96,7 @@
 			if (engine.keyDown["ArrowDown"]) {
 				playerSprite.position.y += playerSpeed * deltaTime;
 			}
-			if (engine.keyDown["Space"]) {
+			if (engine.keyDown[" "]) {
 				const newShot = new Shot(playerSprite.position.x, playerSprite.position.y);
 				shots.push(newShot);
 			}
@@ -116,6 +120,9 @@
 			
 			for (const alien of aliens) {
 				alien.sprite.position.y += alienSpeed;
+			}
+			for (const shot of shots) {
+				shot.update();
 			}
 		}
 		
