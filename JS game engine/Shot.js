@@ -11,7 +11,7 @@ class Shot {
   }
 
   update() {
-    this.sprite.position.add(this.velocity);
+    this.sprite.position = this.sprite.position.add(this.velocity);
   }
 
   draw() {

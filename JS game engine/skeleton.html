@@ -97,7 +97,12 @@
 				playerSprite.position.y += playerSpeed * deltaTime;
 			}
 			if (engine.keyDown[" "]) {
-				const newShot = new Shot(playerSprite.position.x, playerSprite.position.y);
+				const newShot = new Shot(
+					new Vector2D(
+						playerSprite.position.x + playerSprite.size.x/2,
+						playerSprite.position.y + playerSprite.size.y/2
+					)
+				);
 				shots.push(newShot);
 			}
 			
