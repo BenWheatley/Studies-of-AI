@@ -40,9 +40,10 @@
 		let playerSprite;
 		let aliens = [];
 		let alienDelayMilliseconds = 5000;
+		let lastAlienTime = Date.now();
 		let shots = [];
 		let shotDelayMilliseconds = 500;
-		let lastAlienTime = Date.now();
+		let lastShotTime = Date.now();
 		(async () => {
 			await Sprite.preloadSprites(
 				['background.png', 'player-ship.png', 'alien-ship.png', 'energy-blast.png']
@@ -97,13 +98,16 @@
 				playerSprite.position.y += playerSpeed * deltaTime;
 			}
 			if (engine.keyDown[" "]) {
-				const newShot = new Shot(
-					new Vector2D(
-						playerSprite.position.x + playerSprite.size.x/2,
-						playerSprite.position.y + playerSprite.size.y/2
-					)
-				);
-				shots.push(newShot);
+				if (Date.now() > lastShotTime + shotDelayMilliseconds) {
+					lastShotTime = Date.now();
+					const newShot = new Shot(
+						new Vector2D(
+							playerSprite.position.x + playerSprite.size.x/2,
+							playerSprite.position.y + playerSprite.size.y/2
+						)
+					);
+					shots.push(newShot);
+				}
 			}
 			
 			// Toggle fullscreen on ESC key
