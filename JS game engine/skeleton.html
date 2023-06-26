@@ -17,6 +17,7 @@
 	<script type="text/javascript" src="GPTEngine.js"></script>
 	<script type="text/javascript" src="Vector2D.js"></script>
 	<script type="text/javascript" src="Sprite.js"></script>
+	<script type="text/javascript" src="Alien.js"></script>
 </head>
 <body>
 	<canvas id="gameCanvas" width="800" height="600"></canvas>
@@ -98,16 +99,17 @@
 			
 			if (Date.now() > lastAlienTime + alienDelayMilliseconds) {
 				lastAlienTime = Date.now();
-				const newAlienSprite = new Sprite(
-					'alien-ship.png',
-					new Vector2D(Math.random() * (canvas.width - alienSize), -alienSize),
-					new Vector2D(alienSize, alienSize)
+				const newAlien = new Alien(
+					new Vector2D(
+						Math.random() * (canvas.width - Alien.size.x),
+						-Alien.size.y
+					)
 				);
-				aliens.push(newAlienSprite);
+				aliens.push(newAlien);
 			}
 			
 			for (const alien of aliens) {
-				alien.position.y += alienSpeed;
+				alien.sprite.position.y += alienSpeed;
 			}
 		}
 		
