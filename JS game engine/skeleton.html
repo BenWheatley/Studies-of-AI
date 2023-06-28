@@ -133,6 +133,27 @@
 			for (const shot of shots) {
 				shot.update();
 			}
+			
+			checkGamepadInput();
+		}
+		
+		function checkGamepadInput() {
+			const gamepads = navigator.getGamepads();
+			for (const gamepad of gamepads) {
+				if (gamepad) {
+					// Check button presses
+					for (const button of gamepad.buttons) {
+						if (button.pressed) {
+							console.log("Button pressed:", button.index);
+						}
+					}
+					
+					// Check analog stick inputs
+					for (const stick of gamepad.axes) {
+						console.log("Stick value:", stick);
+					}
+				}
+			}
 		}
 		
 		// Game loop

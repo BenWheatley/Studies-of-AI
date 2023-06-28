@@ -24,6 +24,14 @@ class GPTEngine {
 		this._document.addEventListener('keyup', (e) => {
 			this._keyDown[e.key] = false;
 		});
+		this._document.addEventListener("gamepadconnected", function(e) {
+			const gamepad = e.gamepad;
+			console.log("Gamepad connected:", gamepad.id);
+		});
+		this._document.addEventListener("gamepaddisconnected", function(e) {
+			const gamepad = e.gamepad;
+			console.log("Gamepad disconnected:", gamepad.id);
+		});
 	}
 	
 	get mousePos() { return this._mousePos; }
