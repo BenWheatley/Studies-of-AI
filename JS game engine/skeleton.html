@@ -33,13 +33,13 @@
 		Sprite.begin(context);
 		
 		const playerSize = 48;
-		const playerSpeed = 10/100.0; // pixels per millisecond
+		const playerSpeed = 100/1000.0; // pixels per millisecond
 		const alienSize = 48;
-		const alienSpeed = 10/100.0; // pixels per millisecond
+		const alienSpeed = 1000/1000.0; // pixels per millisecond
 		let backgroundSprite;
 		let playerSprite;
 		let aliens = [];
-		let alienDelayMilliseconds = 5000;
+		let alienDelayMilliseconds = 500;
 		let lastAlienTime = Date.now();
 		let shots = [];
 		let shotDelayMilliseconds = 500;
@@ -52,12 +52,12 @@
 		
 		backgroundSprite = new Sprite(
 			'background.png',
-			new Vector2D(0, 0),
+			new Vector2D(canvas.width/2, canvas.height/2),
 			new Vector2D(canvas.width, canvas.height)
 		);
 		playerSprite = new Sprite(
 			'player-ship.png',
-			new Vector2D((canvas.width-playerSize) / 2, canvas.height-playerSize),
+			new Vector2D(canvas.width / 2, canvas.height-playerSize),
 			new Vector2D(playerSize, playerSize),
 		);
 		
@@ -102,8 +102,8 @@
 					lastShotTime = Date.now();
 					const newShot = new Shot(
 						new Vector2D(
-							playerSprite.position.x + playerSprite.size.x/2,
-							playerSprite.position.y + playerSprite.size.y/2
+							playerSprite.position.x,
+							playerSprite.position.y
 						)
 					);
 					shots.push(newShot);
@@ -120,7 +120,7 @@
 				lastAlienTime = Date.now();
 				const newAlien = new Alien(
 					new Vector2D(
-						Math.random() * (canvas.width - Alien.size.x),
+						Alien.size.x/2 + (Math.random() * (canvas.width - Alien.size.x)),
 						-Alien.size.y
 					)
 				);
@@ -129,6 +129,7 @@
 			
 			for (const alien of aliens) {
 				alien.sprite.position.y += alienSpeed;
+				alien.sprite.rotation += 0.02;
 			}
 			for (const shot of shots) {
 				shot.update();

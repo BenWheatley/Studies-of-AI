@@ -7,6 +7,7 @@ class Sprite {
 		}
 		this.position = position;
 		this.size = size;
+		this.rotation = 0.0;
 	}
 	
 	draw() {
@@ -18,13 +19,15 @@ class Sprite {
 			return;
 		}
 		
+		Sprite._context.save();
+		Sprite._context.translate(this.position.x, this.position.y);
+		Sprite._context.rotate(this.rotation);
 		Sprite._context.drawImage(
 			this.imageBitmap,
-			this.position.x,
-			this.position.y,
-			this.size.x,
-			this.size.y
+			-this.size.x/2, -this.size.y/2,
+			this.size.x, this.size.y
 		);
+		Sprite._context.restore();
 	}
 	
 	static _context;
