@@ -5,6 +5,12 @@ class Vector2D {
         this.x = x;
         this.y = y;
     }
+    
+    static fromRadial(angle, radius) {
+		const x = radius * Math.cos(angle);
+		const y = radius * Math.sin(angle);
+		return new Vector2(x, y);
+	}
 
     add(v) {
         return new Vector2D(this.x + v.x, this.y + v.y);
