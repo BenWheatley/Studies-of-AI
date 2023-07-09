@@ -3,7 +3,7 @@ class Player extends GameEntity {
   static size = new Vector2D(48, 48);
   static health = 100;
   static forwardAcceleration = 0.001;
-  static backwardAcceleration = 0.001;
+  static backwardAcceleration = 0.0001;
   static maxSpeed = 0.06;
   static rotationalSpeed = Math.PI / 1000; // Radians per second
 
@@ -19,7 +19,7 @@ class Player extends GameEntity {
   }
 
   reverseThrust(deltaTime) {
-    const decelerationVector = Vector2D.fromRadial(this.sprite.rotation, 1).mul(Player.backwardAcceleration);
+    const decelerationVector = Vector2D.fromRadial(this.sprite.rotation, 1).mul(-Player.backwardAcceleration);
     const velocityChange = decelerationVector.mul(deltaTime);
     this.velocity = this.velocity.add(velocityChange);
     this.clampSpeed();
