@@ -51,7 +51,7 @@
 		
 		backgroundSprite = new Sprite(
 			'background.png',
-			new Vector2D(canvas.width/2, canvas.height/2),
+			new Vector2D(0, 0),
 			new Vector2D(canvas.width, canvas.height)
 		);
 		let player = new Player();
@@ -64,6 +64,12 @@
 		function render() {
 			if (loading()) { return; }
 			
+			context.save();
+			context.translate(
+				canvas.width/2-player.sprite.position.x,
+				canvas.height/2-player.sprite.position.y
+			);
+			
 			backgroundSprite.draw();
 			
 			player.draw();
@@ -74,6 +80,8 @@
 			for (const shot of shots) {
 				shot.draw();
 			}
+			
+			context.restore();
 		}
 		
 		// Update loop; deltaTime is milliseconds
