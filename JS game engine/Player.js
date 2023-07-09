@@ -16,14 +16,14 @@ class Player extends GameEntity {
       Math.sin(this.sprite.rotation) * Player.acceleration
     );
     this.velocity = this.velocity.add(accelerationVector);
-    if (this.velocity.magnitude() > Player.maxSpeed) {
+    if (this.velocity.mag() > Player.maxSpeed) {
       this.velocity = this.velocity.normalize().multiply(Player.maxSpeed);
     }
   }
 
   decelerate() {
     const decelerationVector = this.velocity.normalize().multiply(-Player.deceleration);
-    if (decelerationVector.magnitude() > this.velocity.magnitude()) {
+    if (decelerationVector.mag() > this.velocity.mag()) {
       this.velocity = new Vector2D();
     } else {
       this.velocity = this.velocity.add(decelerationVector);
