@@ -1,16 +1,16 @@
 /* JavaScript game engine: 2d vector class, using modern class syntax, containing all standard vector functions and operators */
 
 class Vector2D {
-    constructor(x, y) {
+    constructor(x = 0, y = 0) {
         this.x = x;
         this.y = y;
     }
     
     static fromRadial(angle, radius) {
-		const x = radius * Math.cos(angle);
-		const y = radius * Math.sin(angle);
-		return new Vector2(x, y);
-	}
+        const x = radius * Math.cos(angle);
+        const y = radius * Math.sin(angle);
+        return new Vector2D(x, y);
+    }
 
     add(v) {
         return new Vector2D(this.x + v.x, this.y + v.y);
