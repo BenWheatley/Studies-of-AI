@@ -2,9 +2,9 @@ class Player extends GameEntity {
   static imageUrl = 'player-ship.png';
   static size = new Vector2D(48, 48);
   static health = 100;
-  static forwardAcceleration = 0.5;
-  static backwardAcceleration = 0.3;
-  static maxSpeed = 5;
+  static forwardAcceleration = 0.001;
+  static backwardAcceleration = 0.001;
+  static maxSpeed = 0.06;
   static rotationalSpeed = Math.PI / 1000; // Radians per second
 
   constructor() {
