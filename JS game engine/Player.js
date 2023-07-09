@@ -23,9 +23,10 @@ class Player extends GameEntity {
 
   decelerate() {
     const decelerationVector = this.velocity.normalize().multiply(-Player.deceleration);
-    this.velocity = this.velocity.add(decelerationVector);
-    if (this.velocity.magnitude() < 0) {
+    if (decelerationVector.magnitude() > this.velocity.magnitude()) {
       this.velocity = new Vector2D();
+    } else {
+      this.velocity = this.velocity.add(decelerationVector);
     }
   }
 
@@ -37,5 +38,3 @@ class Player extends GameEntity {
     this.sprite.rotation += Player.rotationalSpeed;
   }
 }
-
-// Other Player class methods or properties
