@@ -1,3 +1,5 @@
+import { GameEntity } from './GameEntity.js';
+
 class Alien extends GameEntity {
   static imageUrl = 'alien-ship.png';
   static size = new Vector2D(50, 50);
