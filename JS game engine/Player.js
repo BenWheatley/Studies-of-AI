@@ -5,14 +5,14 @@ class Player extends GameEntity {
   static forwardAcceleration = 0.5;
   static backwardAcceleration = 0.3;
   static maxSpeed = 5;
-  static rotationalSpeed = Math.PI / 180 * 3;
+  static rotationalSpeed = Math.PI / 1000; // Radians per second
 
   constructor() {
     super(new Vector2D(0, 0), 0, new Vector2D(), Player.size, Player.imageUrl);
   }
 
   accelerate(deltaTime) {
-    const accelerationVector = Vector2D.fromAngle(this.sprite.rotation).mul(Player.forwardAcceleration);
+    const accelerationVector = Vector2D.fromRadial(this.sprite.rotation, 1).mul(Player.forwardAcceleration);
     const velocityChange = accelerationVector.mul(deltaTime);
     this.velocity = this.velocity.add(velocityChange);
     this.clampSpeed();

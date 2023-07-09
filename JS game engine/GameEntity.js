@@ -11,7 +11,7 @@ class GameEntity {
   
   update(deltaTime) {
     // Update the entity's position based on the velocity and time
-    const displacement = this.velocity.multiply(deltaTime);
+    const displacement = this.velocity.mul(deltaTime);
     this.sprite.position = this.sprite.position.add(displacement);
   }
 }

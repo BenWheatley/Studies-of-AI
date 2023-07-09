@@ -81,29 +81,31 @@
 			if (loading()) { return; }
 			
 			if (engine.keyDown["ArrowLeft"]) {
-				player.turnLeft();
+				player.turnLeft(deltaTime);
 			}
 			if (engine.keyDown["ArrowRight"]) {
-				player.turnRight();
+				player.turnRight(deltaTime);
 			}
 			if (engine.keyDown["ArrowUp"]) {
-				playerSprite.position.y -= playerSpeed * deltaTime;
+				player.accelerate(deltaTime);
 			}
 			if (engine.keyDown["ArrowDown"]) {
-				playerSprite.position.y += playerSpeed * deltaTime;
+				player.reverseThrust(deltaTime);
 			}
 			if (engine.keyDown[" "]) {
 				if (Date.now() > lastShotTime + shotDelayMilliseconds) {
 					lastShotTime = Date.now();
 					const newShot = new Shot(
 						new Vector2D(
-							playerSprite.position.x,
-							playerSprite.position.y
+							player.sprite.position.x,
+							player.sprite.position.y
 						)
 					);
 					shots.push(newShot);
 				}
 			}
+			
+			player.update(deltaTime);
 			
 			// Toggle fullscreen on ESC key
 			if (engine.keyDown["Escape"]) {
