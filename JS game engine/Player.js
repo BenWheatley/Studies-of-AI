@@ -12,31 +12,31 @@ class Player extends GameEntity {
   }
 
   accelerate(deltaTime) {
-    const accelerationVector = Vector2D.fromAngle(this.sprite.rotation).multiply(Player.forwardAcceleration);
-    const velocityChange = accelerationVector.multiply(deltaTime);
+    const accelerationVector = Vector2D.fromAngle(this.sprite.rotation).mul(Player.forwardAcceleration);
+    const velocityChange = accelerationVector.mul(deltaTime);
     this.velocity = this.velocity.add(velocityChange);
     this.clampSpeed();
   }
 
   reverseThrust(deltaTime) {
-    const decelerationVector = Vector2D.fromAngle(this.sprite.rotation + Math.PI).multiply(Player.backwardAcceleration);
-    const velocityChange = decelerationVector.multiply(deltaTime);
+    const decelerationVector = Vector2D.fromRadial(this.sprite.rotation, 1).mul(Player.backwardAcceleration);
+    const velocityChange = decelerationVector.mul(deltaTime);
     this.velocity = this.velocity.add(velocityChange);
     this.clampSpeed();
   }
 
-  turnLeft() {
-    this.sprite.rotation -= Player.rotationalSpeed;
+  turnLeft(deltaTime) {
+    this.sprite.rotation -= Player.rotationalSpeed * deltaTime;
   }
 
-  turnRight() {
-    this.sprite.rotation += Player.rotationalSpeed;
+  turnRight(deltaTime) {
+    this.sprite.rotation += Player.rotationalSpeed * deltaTime;
   }
 
   clampSpeed() {
-    const speed = this.velocity.magnitude();
+    const speed = this.velocity.mag();
     if (speed > Player.maxSpeed) {
-      this.velocity = this.velocity.normalize().multiply(Player.maxSpeed);
+      this.velocity = this.velocity.norm().mul(Player.maxSpeed);
     }
   }
 }
