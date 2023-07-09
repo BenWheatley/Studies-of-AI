@@ -17,7 +17,7 @@ class Player extends GameEntity {
     );
     const velocityChange = accelerationVector.multiply(deltaTime);
     this.velocity = this.velocity.add(velocityChange);
-    if (this.velocity.magnitude() > Player.maxSpeed) {
+    if (this.velocity.mag() > Player.maxSpeed) {
       this.velocity = this.velocity.normalize().multiply(Player.maxSpeed);
     }
   }
@@ -25,9 +25,10 @@ class Player extends GameEntity {
   decelerate(deltaTime) {
     const decelerationVector = this.velocity.normalize().multiply(-Player.deceleration);
     const velocityChange = decelerationVector.multiply(deltaTime);
-    this.velocity = this.velocity.add(velocityChange);
-    if (this.velocity.magnitude() < 0) {
+    if (velocityChange.mag() > this.velocity.mag()) {
       this.velocity = new Vector2D();
+    } else {
+      this.velocity = this.velocity.add(velocityChange);
     }
   }
 
