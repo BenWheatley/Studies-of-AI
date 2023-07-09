@@ -3,7 +3,7 @@ class Player extends GameEntity {
   static size = new Vector2D(48, 48);
   static acceleration = 0.1;
   static deceleration = 0.05;
-  static maxSpeed = 5;
+  static maxSpeed = 100/1000.0; // pixels per millisecond
   static rotationalSpeed = 0.1;
 
   constructor() {
