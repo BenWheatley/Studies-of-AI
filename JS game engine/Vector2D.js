@@ -7,8 +7,8 @@ class Vector2D {
     }
     
     static fromRadial(angle, radius) {
-        const x = radius * Math.cos(angle);
-        const y = radius * Math.sin(angle);
+        const x = radius * Math.sin(angle);
+        const y = radius * -Math.cos(angle);
         return new Vector2D(x, y);
     }
 
