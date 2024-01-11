@@ -1,7 +1,7 @@
 # Studies of AI
-Collection of reports about the state of the art with various AI
+Collection of AI related reports and experiments
 
-* [DALL•E 2: panlingual?](/DALL%E2%80%A2E%202:%20panlingual%3F/research.md)
-* [Global power grid estimates](/Global%20power%20grid/raw-chatGPT-session.md)
-* [↩︎ Building a JavaScript game engine collaboratively with ChatGPT, and Stable Diffusion for sample graphics](https://github.com/BenWheatley/JS-game-engine)
-* [Recipies with ratings](/Recipies/index.html)
+* [DALL•E 2: panlingual?](/DALL%E2%80%A2E%202:%20panlingual%3F/research.md) - research into quality of images generated in different languages
+* [Global power grid estimates](/Global%20power%20grid/raw-chatGPT-session.md) - using AI to assist calculation of various parameters of planetary-scale power grids
+* [↩︎ Building a JavaScript game engine collaboratively with ChatGPT, and Stable Diffusion for sample graphics](https://github.com/BenWheatley/JS-game-engine) - can I make a JS game using ChatGPT?
+* [Recipies with ratings](/Recipies/index.html) - food recipies
