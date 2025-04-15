@@ -1,0 +1,53 @@
+// Parameters
+available_height = 1200;    // Total height of the shelving unit (mm)
+available_length = 800;     // Width of the shelving unit (mm)
+shelf_depth = 200;          // Depth of the shelves (mm)
+base_thickness = 18;        // Thickness of the base panel (mm)
+top_thickness = 18;         // Thickness of the top panel (mm)
+shelf_thickness = 18;       // Thickness of each shelf (mm)
+shelf_spacing = 155;        // Vertical spacing between shelves (usable space, mm)
+side_wall_thickness = 18;   // Thickness of the side walls (mm)
+
+// Function to calculate the number of shelves
+function num_shelves(available_height, base_thickness, top_thickness, shelf_thickness, shelf_spacing) = {
+    let(max_interior_height = available_height - (base_thickness + top_thickness))
+    let(shelf_unit_height = shelf_thickness + shelf_spacing)
+    floor(max_interior_height / shelf_unit_height)
+};
+
+// Function to log and create a cube
+module logged_cube(part_name, position, dimensions) {
+    // Log the part name, position, and dimensions
+    echo(part = part_name, position = position, dimensions = dimensions);
+    // Create the cube at the specified position with the given dimensions
+    translate(position)
+        cube(dimensions);
+}
+
+// Calculate the number of shelves
+shelves = num_shelves(available_height, base_thickness, top_thickness, shelf_thickness, shelf_spacing);
+
+// Module to create the shelving unit
+module shelving_unit() {
+    // Side walls
+    logged_cube("Side Wall (Left)", [0, 0, 0], [side_wall_thickness, shelf_depth, available_height]);
+    logged_cube("Side Wall (Right)", [available_length - side_wall_thickness, 0, 0], [side_wall_thickness, shelf_depth, available_height]);
+
+    // Base panel
+    logged_cube("Base Panel", [side_wall_thickness, 0, 0], [available_length - 2 * side_wall_thickness, shelf_depth, base_thickness]);
+
+    // Top panel
+    logged_cube("Top Panel", [side_wall_thickness, 0, available_height - top_thickness], [available_length - 2 * side_wall_thickness, shelf_depth, top_thickness]);
+
+    // Shelves
+    for (i = [0 : shelves - 1]) {
+        logged_cube(
+            str("Shelf ", i + 1),
+            [side_wall_thickness, 0, base_thickness + i * (shelf_spacing + shelf_thickness)],
+            [available_length - 2 * side_wall_thickness, shelf_depth, shelf_thickness]
+        );
+    }
+}
+
+// Render the shelving unit
+shelving_unit();
