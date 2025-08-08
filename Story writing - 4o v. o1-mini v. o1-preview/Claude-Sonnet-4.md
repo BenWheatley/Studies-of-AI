@@ -25,7 +25,7 @@ The story is told from the perspective of alien diplomats and military officials
 
 Would you like me to continue with additional chapters or modify anything about this opening?
 
---
+---
 
 # Chapter 1: The Cooperation Paradox
 
