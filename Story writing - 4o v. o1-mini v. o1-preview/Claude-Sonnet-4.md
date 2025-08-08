@@ -1,10 +1,10 @@
 # Claude Sonnet 4, 2025 August 8
 
-# Prompt
+## Prompt
 
 Write chapter 1 of an HFY story, but instead of focussing on human physicality, focus on the mind. The premise is that cooperate-compete is a continuum — too far towards compete, and species wipe each other out, too far towards cooperate and they never have a drive to leave their home-world. Most of the interplanetary civilisations are much more cooperative than humans are and found it easy to agree to treaties that require limited growth; most of the species known to the interplanetary civilisations are even more cooperative and never developed space travel at all due to the easy path to space being via weapons of war which they never needed to invent. The one known space-faring species that is more aggressive than humans, spends most of its time fighting itself rather than expanding, though forces from them occasionally terrorise the rest of the galactic community.
 
-# Response
+## Response
 
 I've written the first chapter of an HFY (Humanity, F*** Yeah!) story that focuses on the human mind rather than physical prowess. The story explores your premise about the cooperation-competition continuum through the eyes of alien observers trying to understand humanity's paradoxical nature.
 
