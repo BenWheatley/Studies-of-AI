@@ -2,7 +2,7 @@
 
 ## Motivation
 
-Compare the relative performance of 4o, o1-mini, and o1-preview at writing short stories with the same prompt
+Compare the relative performance of models on a common fiction-writing prompt.
 
 ## Prompt
 
