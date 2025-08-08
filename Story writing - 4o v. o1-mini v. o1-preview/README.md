@@ -1,4 +1,4 @@
-# Short story writing 3-way comparison between various models
+# Short story writing comparison between various models
 
 ## Motivation
 
