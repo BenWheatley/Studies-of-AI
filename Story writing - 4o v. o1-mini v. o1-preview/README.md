@@ -10,10 +10,10 @@ Write chapter 1 of an HFY story, but instead of focussing on human physicality, 
 
 ## Results
 
-* [4o](4o.md) ChatGPT (with custom instructions)
+* [4o](4o.md) (with custom instructions)
 * [o1-mini](o1-mini.md)
 * [o1-preview](o1-preview.md)
-* [GPT-5](GPT-5.md)
+* [GPT-5](GPT-5.md) (with custom instructions)
 * [Claude Sonnet 4](Claude-Sonnet-4.md)
 
 
