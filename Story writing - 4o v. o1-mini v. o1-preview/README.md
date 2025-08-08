@@ -21,5 +21,5 @@ Write chapter 1 of an HFY story, but instead of focussing on human physicality, 
 
 * All models understood the setting
 * 4o got confused with one character both using then rejecting another repeating the word "Fascinating"; while this is realistic (for humans, at least), it's not good writing
-* Output of 4o and o1-mini is way too short for the task of "write chapter 1", even in the context of web fiction — 4o: 770 words; o1-mini: 735 words; o1-preview: 1802 words.
+* Output of 4o, o1-mini, GPT-5 is way too short for the task of "write chapter 1", even in the context of web fiction and including the title in the word count — 4o: 770 words; o1-mini: 735 words; GPT-5: 582 words; Claude Sonnet 4 is marginal at 1012 words; o1-preview is just about acceptable at 1802 words.
 * All of these outputs are significantly better than most of the stuff I've read on r/HFY, including the stories I liked
