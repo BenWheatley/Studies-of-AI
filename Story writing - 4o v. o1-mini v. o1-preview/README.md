@@ -10,19 +10,17 @@ Write chapter 1 of an HFY story, but instead of focussing on human physicality, 
 
 ## Results
 
-* [4o](4o.md) (with custom instructions)
-* [o1-mini](o1-mini.md)
-* [o1-preview](o1-preview.md)
-* [OpenAI-unknown](OpenAI-unknown.md) — One of OpenAI's models, but which one was unknown, done after GPT-5 announced but perhaps before I got access (with custom instructions)
-* [GPT-5](GPT-5.md) (with custom instructions)
-* [Claude Sonnet 4](Claude-Sonnet-4.md)
+| Model | Word count (including title) | Observations |
+|-------|------------|-----------------------|
+| [4o](4o.md) (custom instructions) | 770 | Confused with one character both using and rejecting another’s repeated word “Fascinating” (realistic but bad writing) |
+| [o1-mini](o1-mini.md) | 735 |  |
+| [o1-preview](o1-preview.md) | 1802 | Just about acceptable length for “chapter 1”. |
+| [OpenAI-unknown](OpenAI-unknown.md) (custom instructions) | 582 | My personal preference for actual writing style. |
+| [GPT-5](GPT-5.md) (custom instructions) | 580 |  |
+| [Claude Sonnet 4](Claude-Sonnet-4.md) | 1012 | Marginally acceptable length; my personal preference for getting the point of the idea. |
 
-
-## Discussion
-
-* All models understood the setting
-* 4o got confused with one character both using then rejecting another repeating the word "Fascinating"; while this is realistic (for humans, at least), it's not good writing
-* Output of 4o, o1-mini, GPT-5 is way too short for the task of "write chapter 1", even in the context of web fiction and including the title in the word count — 4o: 770 words; o1-mini: 735 words; GPT-5: 582 words; Claude Sonnet 4 is marginal at 1012 words; o1-preview is just about acceptable at 1802 words.
-* All of these outputs are significantly better than most of the stuff I've read on r/HFY, including the stories I liked
-* Current personal preference is Claude Sonnet 4 for getting the point of the idea, GPT-5 for actual writing style.
-* General observation: this is world building, not plot. OK, so it's chapter 1, this is more of a hook… but it would be nice if there was a story as well as a world for that story.
+**General observations**:
+- All models understood the setting
+- All of these outputs are significantly better than most of the stuff I've read on r/HFY, including the stories I liked
+- These are all world building, not plot. OK, so it's chapter 1, this is more of a hook… but it would be nice if there was a story as well as a world for that story.
+- Current preference: **Claude Sonnet 4** for capturing the idea, **OpenAI-unknown** for style.
