@@ -1,4 +1,4 @@
-# GPT-5
+# One of OpenAI's models, but which one was unknown, done after GPT-5 announced but perhaps before I got access
 
 ## Custom Instructions
 
