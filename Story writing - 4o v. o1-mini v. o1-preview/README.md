@@ -13,6 +13,7 @@ Write chapter 1 of an HFY story, but instead of focussing on human physicality, 
 * [4o](4o.md) (with custom instructions)
 * [o1-mini](o1-mini.md)
 * [o1-preview](o1-preview.md)
+* [OpenAI-unknown](OpenAI-unknown.md) — One of OpenAI's models, but which one was unknown, done after GPT-5 announced but perhaps before I got access (with custom instructions)
 * [GPT-5](GPT-5.md) (with custom instructions)
 * [Claude Sonnet 4](Claude-Sonnet-4.md)
 
