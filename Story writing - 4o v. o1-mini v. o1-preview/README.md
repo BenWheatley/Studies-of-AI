@@ -15,9 +15,11 @@ Write chapter 1 of an HFY story, but instead of focussing on human physicality, 
 | [4o](4o.md) (custom instructions) | 770 | Confused with one character both using and rejecting another’s repeated word “Fascinating” (realistic but bad writing) |
 | [o1-mini](o1-mini.md) | 735 |  |
 | [o1-preview](o1-preview.md) | 1802 | Just about acceptable length for “chapter 1”. |
-| [OpenAI-unknown](OpenAI-unknown.md) (custom instructions) | 582 | My personal preference for actual writing style. |
+| [OpenAI-unknown](OpenAI-unknown.md) (custom instructions) | 582 | My personal preference for actual writing style, or at least it was at the time. |
 | [GPT-5](GPT-5.md) (custom instructions) | 580 |  |
-| [Claude Sonnet 4](Claude-Sonnet-4.md) | 1012 | Marginally acceptable length; my personal preference for getting the point of the idea. |
+| [Claude Sonnet 4](Claude-Sonnet-4.md) | 1012 | Marginally acceptable length; my personal preference for getting the point of the idea at the time. |
+| [GPT-5.5](GPT-5.5.md) (custom instructions) | 1191 | The 'voice' feels very typically ChatGPT-ish, I find I hate it: call it slop, call it literary uncanny valley, but I had to force myself to read it for this review, I found no joy in the experience. |
+| [Claude Sonnet 4.6](Claude-Sonnet-4.6.md) | 1622 | A good start. It not only gets the point of the prompt, it feels engaging. Avoids the voice of slop that ChatGPT has. The numbers and distances it chose feel wrong to me, but in the usual way sci-fi tends to, and is nevertheless still above the standard expected from a typical HFY story. |
 
 **General observations**:
 - All models understood the setting
